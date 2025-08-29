@@ -86,7 +86,23 @@ body {
   }
 }
 
-/* From Uiverse.io by mrhyddenn */
+/* card de productos */
+.carrusel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+
+    .carrusel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carrusel::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
 .card{
   background-color: black;
     border: 1px solid #ffffff;
@@ -213,3 +229,27 @@ body {
 .button:hover .button_lg::after {
   background-color: #fff;
 }
+
+/* elige tu estilo */
+.tu_estilo{
+  z-index: 1;
+  position: relative;
+}
+.nav-links {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: rgb(55, 224, 40);
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: rgb(55, 224, 40);
+    }
