@@ -229,3 +229,7 @@ body {
 .button:hover .button_lg::after {
   background-color: #fff;
 }
+
+.casco {
+  transform: translateY(110px);
+}
