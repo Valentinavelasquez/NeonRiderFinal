@@ -1,0 +1,43 @@
+<form [formGroup]="carritoForm" (ngSubmit)="editMode ? updateCarrito() : createCarrito()" class="card p-4 shadow-sm">
+  <input formControlName="referencia" placeholder="Referencia del producto" />
+  <input formControlName="unidades" type="number" placeholder="Unidades" />
+  <input formControlName="subtotal" type="number" placeholder="Subtotal" />
+  <input formControlName="total" type="number" placeholder="Total" />
+  <input formControlName="direccion" placeholder="Dirección" />
+  <input formControlName="telefono" type="number" placeholder="Teléfono" />
+
+  <select formControlName="metodo_de_pago">
+    <option value="Contraentrega">Contraentrega</option>
+    <option value="Transferencia">Transferencia</option>
+    <option value="Nequi">Nequi</option>
+    <option value="Daviplata">Daviplata</option>
+  </select>
+
+  <button type="submit">
+    {{ editMode ? 'Actualizar' : 'Agregar' }}
+  </button>
+
+  @if (editMode) {
+    <button type="button" (click)="cancelEdit()">Cancelar</button>
+  }
+</form>
+
+<hr />
+
+<ul>
+  @for (carrito of carritos; track carrito._id) {
+    <li>
+      <strong>
+  {{ typeof carrito.referencia === 'string'
+      ? carrito.referencia
+      : carrito.referencia.nombre }}
+</strong>
+
+      - Unidades: {{ carrito.unidades }}
+      - Total: {{ carrito.total }}
+
+      <button (click)="editCarrito(carrito)">Editar</button>
+      <button (click)="deleteCarrito(carrito._id!)">Eliminar</button>
+    </li>
+  }
+</ul>

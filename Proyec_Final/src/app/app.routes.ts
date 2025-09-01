@@ -3,11 +3,13 @@ import { Loguin } from './public/loguin/loguin';
 import { Dashboard } from './home/dashboard/dashboard';
 import { Registro } from './public/registro/registro';
 import { Carrusel } from './home/carrusel/carrusel';
+import { CarritoComponent } from './home/carrito/carrito.component';
 
 export const routes: Routes = [
   {path:"loguin", component:Loguin},
   {path:"dashboard", component:Dashboard},
   {path:"carrusel", component:Carrusel},
-  {path:"registro", component:Registro}
+  {path:"registro", component:Registro},
+  {path:"carrito", component:CarritoComponent}
 ];
 

@@ -1,0 +1,116 @@
+/* Contenedor principal del formulario */
+form.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs y selects */
+form.card input,
+form.card select {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form.card input:focus,
+form.card select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Botones */
+form.card button {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Botón principal */
+form.card button[type="submit"] {
+  background: #007bff;
+  color: white;
+}
+
+form.card button[type="submit"]:hover {
+  background: #0056b3;
+  transform: scale(1.02);
+}
+
+/* Botón de cancelar */
+form.card button[type="button"] {
+  background: #dc3545;
+  color: white;
+}
+
+form.card button[type="button"]:hover {
+  background: #b02a37;
+  transform: scale(1.02);
+}
+
+/* Lista de carritos */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+ul li {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Texto dentro de cada item */
+ul li strong {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Botones en lista */
+ul li button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+ul li button:first-of-type {
+  background: #ffc107;
+  color: #212529;
+}
+
+ul li button:first-of-type:hover {
+  background: #e0a800;
+}
+
+ul li button:last-of-type {
+  background: #dc3545;
+  color: white;
+}
+
+ul li button:last-of-type:hover {
+  background: #b02a37;
+}
