@@ -1,15 +1,30 @@
 import { Component, signal } from '@angular/core';
+import { IonicModule, MenuController } from '@ionic/angular';
 import { RouterOutlet } from '@angular/router';
-import { Footer } from "./home/footer/footer";
-import { Nabvar } from "./home/nabvar/nabvar";
-
+import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
+import { CartService } from './shared/cart.service';   // ⬅️ importa el servicio
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, Nabvar],
+  standalone: true,
+  imports: [IonicModule, RouterOutlet, CartModalComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('Proyec_Final');
+
+  constructor(
+    private menu: MenuController,
+    private cart: CartService            // ⬅️ inyecta el servicio
+  ) {}
+
+  abrirCarrito() {
+    this.menu.open('carritoMenu');       // (opcional) tu sidebar ionic
+  }
+
+  // ⬅️ NUEVO: abre el modal lateral Angular
+  abrirModalCarrito() {
+    this.cart.open();
+  }
 }

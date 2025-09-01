@@ -1,26 +1,25 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-carrusel',
   standalone: true,
-  imports: [IonicModule],
+  imports: [CommonModule, IonIcon],
   templateUrl: './carrusel.html',
-  styleUrls: ['./carrusel.css'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  styleUrls: ['./carrusel.css']
 })
-export class Carrusel {
+export class Carrusel implements AfterViewInit {
   @ViewChild('slider', { static: true }) sliderRef!: ElementRef<HTMLUListElement>;
 
-  activate(action: string) {
-    const slider = this.sliderRef.nativeElement;
-    const items = slider.querySelectorAll('.item');
+  ngAfterViewInit(): void {}
 
-    if (action === 'next' && items.length > 0) {
-      slider.appendChild(items[0]); // mueve el primero al final
-    }
-    if (action === 'prev' && items.length > 0) {
-      slider.prepend(items[items.length - 1]); // mueve el último al inicio
-    }
+  activate(dir: 'prev' | 'next') {
+    const slider = this.sliderRef.nativeElement;
+    const items = Array.from(slider.querySelectorAll('.item'));
+    if (items.length < 2) return;
+
+    if (dir === 'next') slider.appendChild(items[0]);
+    else slider.insertBefore(items[items.length - 1], items[0]);
   }
 }

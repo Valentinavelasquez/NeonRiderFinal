@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CarritoService } from '../../services/carrito/carrito.service';
 import { Carrito } from '../../models/carrito/carrito.model';
 
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-
-  // ✅ Variables necesarias
   carritos: Carrito[] = [];
   carritoForm!: FormGroup;
-  editMode: boolean = false;
+  editMode = false;
   carritoId?: string;
 
   constructor(
@@ -39,15 +42,13 @@ export class CarritoComponent implements OnInit {
     });
   }
 
-  // ✅ Cargar lista de carritos
   loadCarritos(): void {
     this.carritoService.getCarritos().subscribe({
-      next: (data) => this.carritos = data,
+      next: (data) => (this.carritos = data),
       error: (err) => console.error('Error cargando carritos', err)
     });
   }
 
-  // ✅ Crear carrito
   createCarrito(): void {
     if (this.carritoForm.invalid) return;
 
@@ -60,37 +61,35 @@ export class CarritoComponent implements OnInit {
     });
   }
 
-  // ✅ Poner en modo edición
   editCarrito(carrito: Carrito): void {
     this.editMode = true;
     this.carritoId = carrito._id;
     this.carritoForm.patchValue(carrito);
   }
 
-  // ✅ Actualizar carrito
   updateCarrito(): void {
     if (!this.carritoId) return;
 
     this.carritoService.updateCarrito(this.carritoId, this.carritoForm.value).subscribe({
       next: (updatedCarrito) => {
-        this.carritos = this.carritos.map(c => c._id === updatedCarrito._id ? updatedCarrito : c);
+        this.carritos = this.carritos.map((c) =>
+          c._id === updatedCarrito._id ? updatedCarrito : c
+        );
         this.cancelEdit();
       },
       error: (err) => console.error('Error actualizando carrito', err)
     });
   }
 
-  // ✅ Eliminar carrito
   deleteCarrito(id: string): void {
     this.carritoService.deleteCarrito(id).subscribe({
       next: () => {
-        this.carritos = this.carritos.filter(c => c._id !== id);
+        this.carritos = this.carritos.filter((c) => c._id !== id);
       },
       error: (err) => console.error('Error eliminando carrito', err)
     });
   }
 
-  // ✅ Cancelar edición
   cancelEdit(): void {
     this.editMode = false;
     this.carritoId = undefined;

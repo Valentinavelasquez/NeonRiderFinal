@@ -5,7 +5,7 @@ export interface Carrito {
     _id: string;
     nombre: string;
     precio: number;
-    // agrega aquí más campos si tu producto tiene otros
+    // agregar mas si es necesario
   };
   unidades: number;
   subtotal: number;

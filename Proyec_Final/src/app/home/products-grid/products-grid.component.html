@@ -1,0 +1,19 @@
+<h1 class="title">Nuevos Productos</h1>
+
+<div class="product-grid">
+  <div class="product-grid__item" *ngFor="let p of products">
+    <div class="product-grid__imagen">
+      <img [src]="p.thumb" [alt]="p.name" />
+    </div>
+
+    <div class="product-grid__info">
+      <p class="product-grid__name">{{ p.name }}</p>
+      <p class="product-grid__price">{{ p.priceLabel }}</p>
+
+      <!-- type="button" para no enviar formularios por error -->
+      <button type="button" class="btn-default" (click)="add(p)">
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+</div>

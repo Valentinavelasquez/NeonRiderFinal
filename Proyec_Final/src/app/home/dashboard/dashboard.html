@@ -1,65 +1,47 @@
-<app-carrusel></app-carrusel>
+<ion-content [fullscreen]="true">
+  <div class="wrap">
 
-<div class="cards-container">
-    <!-- Card 1 -->
-    <div class="card card-red">
-      <h3>PRODUCTOS POR MENOS DE</h3>
-      <h2>$150.000</h2>
-      <img src="Accesorios/chaqueta_4.jpg" alt="Casco">
-      <a href="#">VER MÁS</a>
+    <!-- Carrusel -->
+    <app-carrusel></app-carrusel>
+
+    <!-- Tus cards -->
+    <div class="cards-container">
+      <div class="card card-red">
+        <h3>PRODUCTOS POR MENOS DE</h3>
+        <h2>$150.000</h2>
+        <img src="assets/Accesorios/chaqueta_4.jpg" alt="Casco">
+        <a href="#">VER MÁS</a>
+      </div>
+
+      <div class="card card-gray">
+        <h3>COMPLETA TU PINTA</h3>
+        <img src="assets/Accesorios/chaqueta_5.jpg" alt="Ropa">
+        <a href="#">VER MÁS</a>
+      </div>
+
+      <div class="card card-blue">
+        <h3>PAGA EN CUOTAS</h3>
+        <h2>Addi</h2>
+        <a href="#">¡LO QUIERO!</a>
+      </div>
+
+      <div class="card card-orange">
+        <h3>ARMA TU COMBO<br>POR MENOS DE<br>$300.000</h3>
+        <img src="assets/Accesorios/impermeable_3.jpg" alt="Combo">
+        <a href="#">VER MÁS</a>
+      </div>
+
+      <div class="card card-purple">
+        <h3>LO ÚLTIMO EN COLECCIONES</h3>
+        <img src="assets/Cascos/integral_3.jpg" alt="Casco morado">
+        <a href="#">VER MÁS</a>
+      </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="card card-gray">
-      <h3>COMPLETA TU PINTA</h3>
-      <img src="Accesorios/chaqueta_5.jpg" alt="Ropa">
-      <a href="#">VER MÁS</a>
+    <!-- Grid de productos -->
+    <div class="container">
+      <app-products-grid></app-products-grid>
     </div>
 
-    <!-- Card 3 -->
-    <div class="card card-blue">
-      <h3>PAGA EN CUOTAS</h3>
-      <h2>Addi</h2>
-      <a href="#">¡LO QUIERO!</a>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card card-orange">
-      <h3>ARMA TU COMBO<br>POR MENOS DE<br>$300.000</h3>
-      <img src="Accesorios/impermeable_3.jpg" alt="Combo">
-      <a href="#">VER MÁS</a>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card card-purple">
-      <h3>LO ÚLTIMO EN COLECCIONES</h3>
-      <img src="Cascos/integral_3.jpg" alt="Casco morado">
-      <a href="#">VER MÁS</a>
-    </div>
   </div>
-
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/integral_2.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    </button>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/integral_2.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    </button>
-
+</ion-content>
