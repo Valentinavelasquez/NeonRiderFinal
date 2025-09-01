@@ -57,3 +57,7 @@
     .nav-right a:hover {
       color: rgb(55, 224, 40);
     }
+
+    ul li a {
+      cursor: pointer;
+    }
