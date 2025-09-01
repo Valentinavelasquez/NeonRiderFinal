@@ -6,16 +6,23 @@
 
     <!-- Links -->
     <ul class="nav-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Service</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Feedback</a></li>
+      <li routerLink="/dashboard"><a>INICIO</a></li>
+      <li routerLink="/cascos"><a>CASCOS</a></li>
+      <li routerLink="/accesorios"><a>ACCESORIOS</a></li>
+      <li routerLink="/textil"><a>TEXTIL</a></li>
     </ul>
 
     <!-- Derecha -->
     <div class="nav-right">
-      <a href="#">English</a>
-      <a href="#">Sign up</a>
-      <a href="#" class="btn-register">Register</a>
+      @if (loguiado) {
+      <a routerLink="/administrador">ADMIN</a>
+
+      }
+      @if (!loguiado) {
+      <a  routerLink="/loguin">Login</a>
+      }
+      @if(loguiado){
+      <a (click)="logout()" routerLink="/login">Logout</a>
+      }
     </div>
   </nav>
