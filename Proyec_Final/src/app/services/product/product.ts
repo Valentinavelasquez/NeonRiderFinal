@@ -28,4 +28,8 @@ export class Product {
     return this.http.put(`${this.apiUrl}/product/${id}`, body)
   }
 
+  getOneProduct(id:string) {
+    return this.http.get(`${this.apiUrl}/product/${id}`)
+  }
+
 }
