@@ -83,26 +83,17 @@
               </select>
               </div>
                 <label for="textarea">COLORES DISPONIBLES</label>
-          <div>
-            <input id="check-1" type="checkbox" />
-            <label for="check-1">Negro</label>
-          </div>
-          <div>
-            <input checked="" id="check-2" type="checkbox" />
-            <label for="check-2">Azul</label>
-          </div>
-          <div>
-            <input id="check-3" type="checkbox" />
-            <label for="check-3">Morado</label>
-          </div>
-          <div>
-            <input id="check-4" type="checkbox" />
-            <label for="check-4">Gris</label>
-          </div>
-                <div>
-            <input id="check-5" type="checkbox" />
-            <label for="check-5">Multicolor</label>
-          </div>
+              <div>
+                <label for="floatingSelectColor">Color</label>
+                <select formControlName="Color" class="form-select" id="floatingSelectColor" aria-label="Floating label select example">
+                    <option selected>ELIGE EL COLOR</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Morado">Morado</option>
+                    <option value="Gris">Gris</option>
+                    <option value="Multicolor">Multicolor</option>
+                </select>
+                </div>
           </div>
     </div>
       </div>
