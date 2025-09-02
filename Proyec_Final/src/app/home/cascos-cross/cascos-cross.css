@@ -1,0 +1,45 @@
+.container-tipos-de-cascos h2 p{
+display: flex;
+justify-content: center;
+gap: 40px;
+flex-wrap: wrap;
+margin-top: 50px;
+}
+h2{
+  margin-top: 80px;
+  margin-left: 30px;
+}
+P{
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.icono{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+}
+.icono img{
+  width: 70px; /* tamaño del ícono dentro del círculo */
+  height: auto;
+  transition: transform 0.3s ease; /* animación suave */
+}
+.icono img:hover{
+  transform: translateY(-10px);
+}
+.icono p {
+font-size: 14px;
+font-weight: bold;
+color: #000;
+text-transform: uppercase; /* texto en mayúscula */
+margin: 25px;
+text-align: center;
+}
+.tu-estilo{
+  padding: 28px;
+  margin-left: 40px;
+  font-weight: bold;
+}
