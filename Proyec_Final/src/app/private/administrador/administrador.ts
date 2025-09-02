@@ -16,7 +16,7 @@ export class Administrador {
 
   productService = inject(Product)
 
-
+    items!: any
   formProduct !: FormGroup
 
   constructor(private fb: FormBuilder) {
@@ -33,7 +33,7 @@ export class Administrador {
 
 
   ngOnInit() {
-
+    this.renderProduct()
   }
 
   createProduct() {
@@ -46,7 +46,7 @@ export class Administrador {
                 text:"Producto Creado!",
                 draggable:true
               })
-
+              this.renderProduct()
               this.formProduct.reset()
       },
       error:(error:any)=> {
@@ -62,6 +62,26 @@ export class Administrador {
 
   }
 
+  renderProduct() {
+    this.productService.getCascos().subscribe({
+        next:(dataApi:any)=> {
+            this.items = dataApi
+        },
+        error:(error:any)=> {
+            console.log(error);
 
+        }
+    })
+  }
 
+  deleteProduct(id:string) {
+    this.productService.deleteProduct(id).subscribe({
+        next:(dataApi:any)=>{
+            this.renderProduct()
+        },
+        error:(error:any)=> {
+
+        }
+    })
+  }
 }
