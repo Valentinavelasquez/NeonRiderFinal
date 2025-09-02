@@ -1,4 +1,29 @@
-body{
-  background-color: black;
+/* Botón flotante carrito (abajo derecha) */
+.cart-fab{
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  border: none;
+  background: #135337;
+  color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  cursor: pointer;
+  z-index: 10060;
 }
+.cart-fab:hover{ filter: brightness(1.05); }
 
+.cart-fab .badge{
+  position: absolute;
+  top: -6px; right: -6px;
+  min-width: 20px; height: 20px;
+  padding: 0 6px;
+  background: #ff3b30;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 12px; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 2px solid #fff;
+}

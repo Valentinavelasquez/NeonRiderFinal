@@ -1,44 +1,39 @@
-<div class="modal" [class.active]="(cart.open$ | async) === true">
-  <div class="modal__container">
-    <button type="button" class="modal__close fa-solid fa-xmark" (click)="close()"></button>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-    <div class="modal__info">
-      <div class="modal__header">
-        <h2><i class="fa-brands fa-opencart"></i>Carrito</h2>
-      </div>
+<ion-content>
+  <ion-list *ngIf="(items$ | async) as items; else empty">
+    <ion-item *ngFor="let it of items; let i = index">
+      <ion-label>
+        <div>{{ it.name }}</div>
+        <small>
+          {{ it.price | currency:'COP':'symbol':'1.0-0' }} x {{ it.qty }}
+        </small>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="remove(i)">Quitar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 
-      <div class="modal__body">
-        <div class="modal__list">
-          <div class="modal__item" *ngFor="let it of (cart.items$ | async)">
-            <div class="modal__thumb">
-              <img [src]="it.thumb" [alt]="it.name">
-            </div>
-            <div class="modal__text-product">
-              <p>{{ it.name }}</p>
-              <p><strong>{{ it.priceLabel }}</strong></p>
-            </div>
-          </div>
+  <ng-template #empty>
+    <div class="empty">Tu carrito está vacío</div>
+  </ng-template>
+</ion-content>
 
-          <div *ngIf="(cart.items$ | async)?.length === 0" style="padding:12px;color:#555">
-            Tu carrito está vacío.
-          </div>
-        </div>
-      </div>
-
-      <div class="modal__footer">
-        <div class="modal__list-price">
-          <ul>
-            <li>Subtotal: <strong>{{ subtotalLabel }}</strong></li>
-            <li>Descuento: <strong>$0.00</strong></li>
-          </ul>
-          <h4 class="modal__total-cart"> Total: {{ totalLabel }}</h4>
-        </div>
-
-        <div class="modal__btns">
-          <a routerLink="/carrito" class="btn-border" (click)="close()">Ir al carrito</a>
-          <a href="#" class="btn-primary" (click)="close()">Comprar Ahora</a>
-        </div>
-      </div>
-    </div>
+<ion-footer class="ion-padding" *ngIf="(items$ | async)?.length">
+  <div class="total">
+    Total:
+    <strong>{{ total$ | async | currency:'COP':'symbol':'1.0-0' }}</strong>
   </div>
-</div>
+  <ion-buttons>
+    <ion-button color="medium" (click)="clear()">Vaciar</ion-button>
+    <ion-button expand="block">Pagar</ion-button>
+  </ion-buttons>
+</ion-footer>

@@ -1,30 +1,22 @@
-import { Component, signal } from '@angular/core';
-import { IonicModule, MenuController } from '@ionic/angular';
-import { RouterOutlet } from '@angular/router';
-import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
-import { CartService } from './shared/cart.service';   // ⬅️ importa el servicio
+import { Component } from '@angular/core';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+
+// 👇 importa tus componentes de cabecera y pie (standalone)
+import { Navbar } from './home/navbar/navbar';
+import { Footer } from './home/footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IonicModule, RouterOutlet, CartModalComponent],
-  templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  imports: [IonApp, IonRouterOutlet, Navbar, Footer],
+  template: `
+    <ion-app>
+      <app-navbar></app-navbar>
+
+      <ion-router-outlet></ion-router-outlet>
+
+      <app-footer></app-footer>
+    </ion-app>
+  `,
 })
-export class App {
-  protected readonly title = signal('Proyec_Final');
-
-  constructor(
-    private menu: MenuController,
-    private cart: CartService            // ⬅️ inyecta el servicio
-  ) {}
-
-  abrirCarrito() {
-    this.menu.open('carritoMenu');       // (opcional) tu sidebar ionic
-  }
-
-  // ⬅️ NUEVO: abre el modal lateral Angular
-  abrirModalCarrito() {
-    this.cart.open();
-  }
-}
+export class App {}

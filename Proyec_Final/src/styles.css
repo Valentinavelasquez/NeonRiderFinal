@@ -9,3 +9,5 @@ html, body {
 ion-app, ion-router-outlet, .ion-page {
   height: 100%;
 }
+
+body.cart-open { overflow: hidden; }
