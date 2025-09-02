@@ -9,6 +9,12 @@ import { RouterLink } from '@angular/router';
 import { Accesorios } from './home/accesorios/accesorios';
 import { Cascos } from './home/cascos/cascos';
 import { Textil } from './home/textil/textil';
+import { CascosIntegrales } from './home/cascos-integrales/cascos-integrales';
+import { CascosAbatibles } from './home/cascos-abatibles/cascos-abatibles';
+import { CascosAbiertos } from './home/cascos-abiertos/cascos-abiertos';
+import { CascosCross } from './home/cascos-cross/cascos-cross';
+import { CascosModulares } from './home/cascos-modulares/cascos-modulares';
+import { CascosMultiproposito } from './home/cascos-multiproposito/cascos-multiproposito';
 export const routes: Routes = [
   {path:"loguin", component:Loguin},
   {path:"dashboard", component:Dashboard},
@@ -17,7 +23,13 @@ export const routes: Routes = [
   {path:"administrador", component:Administrador},
   {path:"accesorios", component:Accesorios},
   {path:"cascos", component:Cascos},
-  {path:"textil", component:Textil}
+  {path:"textil", component:Textil},
+  {path:"cascosintegrales", component:CascosIntegrales},
+  {path:"cascosabatibles", component:CascosAbatibles},
+  {path:"cascosabiertos", component:CascosAbiertos},
+  {path:"cascoscross", component:CascosCross},
+  {path:"cascosmodulares", component:CascosModulares},
+  {path:"cascosmultiproposito", component:CascosMultiproposito}
 ];
 
 

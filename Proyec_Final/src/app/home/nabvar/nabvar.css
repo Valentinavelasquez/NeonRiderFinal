@@ -10,6 +10,9 @@
       background:rgba(0,0,0,.05); backdrop-filter: blur(6px);
       padding: 15px 20px;
     }
+    ul .desplegable{
+      display: block;
+    }
 
     /* Logo */
     .image-container img{
