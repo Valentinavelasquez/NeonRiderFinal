@@ -1,4 +1,4 @@
-<img src="Fondo/logo_final.png" alt="">
+<img class="w-100" src="Fondo/logo_final.png" alt="">
 
 <form [formGroup]="formUser" class="form">
     <p class="title">Registrarse </p>
@@ -10,6 +10,8 @@
           <label><input formControlName="password" required="" type="password" class="input"><span>Contraseña</span></label>
           <label><input formControlName="confirmPassword" required="" type="password" class="input"><span>Confirmar contraseña</span></label>
       </div>
-    <button class="button-submit" (click)="registrarse()">Enviar</button>
+      <div class="d-flex justify-content-center">
+          <button class="button-submit" (click)="registrarse()">Enviar</button>
+      </div>
     <p class="p">¿Ya tienes una cuenta?<a class="span register" routerLink="/loguin">Iniciar sesión</a> </p>
 </form>
