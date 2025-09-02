@@ -18,6 +18,7 @@ export class Administrador {
 
     items!: any
   formProduct !: FormGroup
+  idProduct!: string
 
   constructor(private fb: FormBuilder) {
     this.formProduct = fb.group({
@@ -80,8 +81,40 @@ export class Administrador {
             this.renderProduct()
         },
         error:(error:any)=> {
-
         }
     })
+  }
+
+  updateProduct(id:string) {
+    this.productService.getOneProduct(id).subscribe({
+        next:(dataApi:any)=>{
+            this.formProduct.patchValue({
+                Imagen:dataApi.Imagen,
+                Descripcion:dataApi.Descripcion,
+                referencia:dataApi.referencia,
+                Marca:dataApi.Marca,
+                Tipo:dataApi.Tipo,
+                Color:dataApi.Color,
+                Precio:dataApi.Precio
+            })
+            this.idProduct = id
+        },
+        error:(error:any)=>{
+            console.log(error);
+        }
+    })
+
+  }
+  updateFinal(){
+        this.productService.editarProduct(this.formProduct.value,this.idProduct).subscribe({
+            next:(dataApi:any)=>{
+                this.renderProduct()
+                this.idProduct = ""
+            },
+            error:(error:any)=>{
+                console.log(error);
+
+            }
+        })
   }
 }
