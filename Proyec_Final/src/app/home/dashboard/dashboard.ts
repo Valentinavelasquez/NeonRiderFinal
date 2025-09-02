@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Carrusel } from "../carrusel/carrusel";
 import { RouterLink } from '@angular/router';
+import { Product } from '../../services/product/product';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,5 +10,26 @@ import { RouterLink } from '@angular/router';
   styleUrl: './dashboard.css'
 })
 export class Dashboard {
+    items!: any
 
+    productService = inject(Product)
+
+
+
+
+ngOnInit() {
+this.renderProduct()
+}
+
+renderProduct() {
+    this.productService.getCascos().subscribe({
+        next:(dataApi:any)=> {
+            this.items = dataApi
+        },
+        error:(error:any)=> {
+            console.log(error);
+
+        }
+    })
+  }
 }
