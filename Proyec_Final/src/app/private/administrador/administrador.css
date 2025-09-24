@@ -16,8 +16,7 @@
   scale: 0.95;
 }
 .form{
-  margin-top: 100px;
-  margin-bottom: 150px;
+  margin-top: 10px;
 }
 .form-container .form {
   display: flex;
@@ -151,3 +150,78 @@
 }
 
 
+.x {
+  height: 100px;
+}
+
+
+/*------------------------------------------------*/
+
+.product-card {
+  display: flex;
+  align-items: center;
+  background: #b4a1a1;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0003;
+  padding: 16px;
+  margin: 16px 0;
+  gap: 20px;
+  color: #fff;
+}
+
+.product-img {
+  width: 100px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #fff;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  margin: 0 0 8px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.product-price {
+  margin: 0 0 12px 0;
+  font-size: 1.1em;
+  color: #46ff52;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-action.edit {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-action.edit:hover {
+  background: #0056b3;
+}
+
+.btn-action.delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-action.delete:hover {
+  background: #a71d2a;
+}

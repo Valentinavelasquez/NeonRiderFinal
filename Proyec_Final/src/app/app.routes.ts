@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { Footer } from './home/footer/footer';
+import { Nabvar } from './home/nabvar/nabvar';
 import { Loguin } from './public/loguin/loguin';
 import { Dashboard } from './home/dashboard/dashboard';
 import { Registro } from './public/registro/registro';
@@ -17,9 +19,10 @@ import { CascosModulares } from './home/cascos-modulares/cascos-modulares';
 import { CascosMultiproposito } from './home/cascos-multiproposito/cascos-multiproposito';
 import { Visualizacion } from './home/visualizacion/visualizacion';
 export const routes: Routes = [
-  {path:"loguin", component:Loguin},
-  {path:"dashboard", component:Dashboard},
+  {path:"", redirectTo:"dashboard", pathMatch: "full"},
+  {path:"loguin", component:Loguin, pathMatch: "full"},
   {path:"carrusel", component:Carrusel},
+  {path:"dashboard", component:Dashboard},
   {path:"registro", component:Registro},
   {path:"administrador", component:Administrador},
   {path:"accesorios", component:Accesorios},
@@ -31,7 +34,8 @@ export const routes: Routes = [
   {path:"cascoscross", component:CascosCross},
   {path:"cascosmodulares", component:CascosModulares},
   {path:"cascosmultiproposito", component:CascosMultiproposito},
-  {path:"visualizaciones", component:Visualizacion}
+  {path:"visualizaciones", component:Visualizacion},
+  { path: "**", redirectTo: "error-404", pathMatch: "full"}
 ];
 
 
