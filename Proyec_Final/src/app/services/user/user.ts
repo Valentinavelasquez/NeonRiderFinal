@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class User {
-  private apiUrl:String ="http://localhost:3000/api"
+  private apiUrl:String ="https://d3ialmb2cy79c5.cloudfront.net/NeonRider/api"
   constructor(private http : HttpClient){}
 
   register (body: any) {
