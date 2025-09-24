@@ -8,7 +8,7 @@ export class Product {
 
 
 
-  private apiUrl:String ="http://localhost:3000/api"
+  private apiUrl:String ="https://d3ialmb2cy79c5.cloudfront.net/NeonRider/api"
   constructor(private http : HttpClient){}
 
 
