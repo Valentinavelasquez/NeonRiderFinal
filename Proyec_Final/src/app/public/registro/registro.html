@@ -1,33 +1,17 @@
-<img src="Fondo/logo_final.png" alt="">
-<!-- From Uiverse.io by Yaya12085 -->
-<form class="form">
-    <p class="title">Registrate </p>
-    <p class="message">Signup now and get full access to our app. </p>
-        <div class="flex">
-        <label>
-            <input required="" placeholder="" type="text" class="input">
-            <span>Firstname</span>
-        </label>
+<img class="w-100" src="Fondo/logo_final.png" alt="">
 
-        <label>
-            <input required="" placeholder="" type="text" class="input">
-            <span>Lastname</span>
-        </label>
-    </div>
-
-    <label>
-        <input required="" placeholder="" type="email" class="input">
-        <span>Email</span>
-    </label>
-
-    <label>
-        <input required="" placeholder="" type="password" class="input">
-        <span>Password</span>
-    </label>
-    <label>
-        <input required="" placeholder="" type="password" class="input">
-        <span>Confirm password</span>
-    </label>
-    <button class="submit">Submit</button>
-    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+<form [formGroup]="formUser" class="form">
+    <p class="title">Registrarse </p>
+    <p class="message">Regístrese ahora y acceda a todos nuestros beneficios</p>
+      <div class="formulario">
+          <label><input formControlName="nombre" required="" type="text" class="input"><span>Nombre</span></label>
+          <label><input formControlName="apellido" required="" type="text" class="input"><span>Apellido</span></label>
+          <label><input formControlName="correo" required="" type="email" class="input"><span>Correo</span></label>
+          <label><input formControlName="password" required="" type="password" class="input"><span>Contraseña</span></label>
+          <label><input formControlName="confirmPassword" required="" type="password" class="input"><span>Confirmar contraseña</span></label>
+      </div>
+      <div class="d-flex justify-content-center">
+          <button class="button-submit" (click)="registrarse()">Enviar</button>
+      </div>
+    <p class="p">¿Ya tienes una cuenta?<a class="span register" routerLink="/loguin">Iniciar sesión</a> </p>
 </form>

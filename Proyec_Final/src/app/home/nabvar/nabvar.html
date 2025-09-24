@@ -15,7 +15,15 @@
 
     <!-- Derecha -->
     <div class="nav-right">
+      @if (loguiado) {
       <a routerLink="/administrador">ADMIN</a>
-      <a routerLink="/loguin">Loguin</a>
+
+      }
+      @if (!loguiado) {
+      <a  routerLink="/loguin">Login</a>
+      }
+      @if(loguiado){
+      <a (click)="logout()" routerLink="/login">Logout</a>
+      }
     </div>
   </nav>

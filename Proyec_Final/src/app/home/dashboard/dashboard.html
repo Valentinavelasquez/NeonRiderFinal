@@ -72,88 +72,31 @@
   </div>
 
   <!--cards de productos-->
-<div class="carrusel">
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/integral_2.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Casto SHAFT Pro610 DV EVO</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    </button>
-        <!-- segundo botonn card -->
-        <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Ver más</span>
-    </span>
-    </button>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/abatible_2.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Casco LS2 FF910 Solid</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    <!-- segundo botonn card -->
-    </button>
-        <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Ver más</span>
-    </span>
-    </button>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/integral_5.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">CaSCO SHAFT PRO SHPRO-615 DV </h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    </button>
-            <!-- segundo botonn card -->
-        <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Ver más</span>
-    </span>
-    </button>
+<div class="carrusel d-flex justify-content-center gap-5">
+    @for (item of items; track $index) {
+        <div class="card" style="width: 18rem;">
+        <img src="{{item.Imagen}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item.referencia}}</h5>
+            <p class="card-text">{{item.Descripcion}}</p>
+            <button class="button">
+            <span class="button_lg">
+                <span class="button_sl"></span>
+                <span class="button_text">Agregar al carrito</span>
+            </span>
+            </button>
+                <!-- segundo botonn card -->
+                <button routerLink="/cascos" class="button">
+            <span class="button_lg">
+                <span class="button_sl"></span>
+                <span  class="button_text">Ver más</span>
+            </span>
+            </button>
+        </div>
+        </div>
 
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/abatible_3.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Casco ICH 3110 Drop</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    </button>
-            <!-- segundo botonn card -->
-        <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Ver más</span>
-    </span>
-    </button>
-  </div>
-</div>
+    }
+
 
 </div>
 
