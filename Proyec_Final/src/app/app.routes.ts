@@ -15,6 +15,7 @@ import { CascosAbiertos } from './home/cascos-abiertos/cascos-abiertos';
 import { CascosCross } from './home/cascos-cross/cascos-cross';
 import { CascosModulares } from './home/cascos-modulares/cascos-modulares';
 import { CascosMultiproposito } from './home/cascos-multiproposito/cascos-multiproposito';
+import { Visualizacion } from './home/visualizacion/visualizacion';
 export const routes: Routes = [
   {path:"loguin", component:Loguin},
   {path:"dashboard", component:Dashboard},
@@ -29,7 +30,8 @@ export const routes: Routes = [
   {path:"cascosabiertos", component:CascosAbiertos},
   {path:"cascoscross", component:CascosCross},
   {path:"cascosmodulares", component:CascosModulares},
-  {path:"cascosmultiproposito", component:CascosMultiproposito}
+  {path:"cascosmultiproposito", component:CascosMultiproposito},
+  {path:"visualizaciones", component:Visualizacion}
 ];
 
 
