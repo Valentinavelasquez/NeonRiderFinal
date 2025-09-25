@@ -1,44 +1,28 @@
 <div class="d-flex gap-3 justify-content-center casco">
 
-      @for (item of items; track $index) {
+    @for (item of items; track $index) {
 
-            <div class="card" style="width: 18rem;">
-            <img src="{{item.Imagen}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{item.Marca}}</h5>
-              <p class="card-text">{{item.Descripcion}}</p>
-              <p class="card-text">{{item.Precio}}</p>
-            <div class="size">
-              <span>Tallas</span>
-              <ul class="list-size">
-                <li class="item-list"><button class="item-list-button">S</button></li>
-                <li class="item-list"><button class="item-list-button">M</button></li>
-                <li class="item-list"><button class="item-list-button">L</button></li>
-                <li class="item-list"><button class="item-list-button">XL</button></li>
-                <li class="item-list"><button class="item-list-button">XXL</button></li>
-              </ul>
-            </div>
-            <!-- colores -->
-            <label class="cyberpunk-checkbox-label">
-            <input type="checkbox" class="cyberpunk-checkbox">Negro</label>
-            <label class="cyberpunk-checkbox-label">
-            <input type="checkbox" class="cyberpunk-checkbox">Azul</label>
-            <label class="cyberpunk-checkbox-label">
-            <input type="checkbox" class="cyberpunk-checkbox">Multicolor</label>
+    <div class="card" style="width: 18rem;">
+        <img src="{{item.Imagen}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{item.referencia}}</h5>
+        <p class="card-text">${{item.Precio}}</p>
+    <button class="button">
+        <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Agregar al carrito</span>
+        </span>
+    </button>
+    <button class="button">
+        <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Ver más</span>
+        </span>
+    </button>
 
-            <!--  -->
-              <button class="button">
-              <span class="button_lg">
-                  <span class="button_sl"></span>
-                  <span class="button_text">Agregar al carrito</span>
-              </span>
-              </button>
-            </div>
-            </div>
-
-
-
-      }
+        </div>
+    </div>
+    }
 </div>
 
 

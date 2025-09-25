@@ -18,6 +18,7 @@ import { CascosCross } from './home/cascos-cross/cascos-cross';
 import { CascosModulares } from './home/cascos-modulares/cascos-modulares';
 import { CascosMultiproposito } from './home/cascos-multiproposito/cascos-multiproposito';
 import { Visualizacion } from './home/visualizacion/visualizacion';
+import { SobreNosotros } from './home/sobre-nosotros/sobre-nosotros';
 export const routes: Routes = [
   {path:"", redirectTo:"dashboard", pathMatch: "full"},
   {path:"loguin", component:Loguin, pathMatch: "full"},
@@ -35,6 +36,7 @@ export const routes: Routes = [
   {path:"cascosmodulares", component:CascosModulares},
   {path:"cascosmultiproposito", component:CascosMultiproposito},
   {path:"visualizaciones", component:Visualizacion},
+  {path:"sobre-nosotros", component:SobreNosotros},
   { path: "**", redirectTo: "error-404", pathMatch: "full"}
 ];
 
