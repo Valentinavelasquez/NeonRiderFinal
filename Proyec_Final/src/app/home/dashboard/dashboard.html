@@ -72,13 +72,13 @@
   </div>
 
   <!--cards de productos-->
-<div class="carrusel d-flex justify-content-center gap-5">
+<div class="carrusel d-flex justify-content-center gap-2">
     @for (item of items; track $index) {
         <div class="card" style="width: 18rem;">
         <img src="{{item.Imagen}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{item.referencia}}</h5>
-            <p class="card-text">{{item.Descripcion}}</p>
+            <p class="card-text">${{item.Precio}}</p>
             <button class="button">
             <span class="button_lg">
                 <span class="button_sl"></span>

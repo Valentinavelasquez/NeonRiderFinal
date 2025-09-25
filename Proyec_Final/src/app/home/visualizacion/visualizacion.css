@@ -1,25 +1,25 @@
 body {
-  background-color: #333;
+  background-color: #000000;
   font-family: Arial, sans-serif;
   padding: 20px;
-  background: #f9f9f9;
 }
 table {
       width: 100%;
       border-collapse: collapse;
-      background: #fff;
+      background: #000000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
       overflow: hidden;
     }
     th, td {
       padding: 12px 15px;
       text-align: left;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #0fc105;
+      color: #fff;
     }
 
     th {
       font-weight: bold;
+      color: #fff;
     }
 .table tr td th{
   display: block;
@@ -27,7 +27,7 @@ table {
 }
 .size {
   font-size: 0.75rem;
-  color: var(--light);
+  color: white;
   --primary-shadow: #14c112;
 }
 
@@ -47,27 +47,13 @@ table {
   cursor: pointer;
 
   padding: 0.5rem;
-  background-color: var(--zinc-800);
 
   font-size: 0.75rem;
-  color: var(--light);
 
-  border: 2px solid var(--zinc-800);
   border-radius: 0.25rem;
 
   transition: all 0.3s ease-in-out;
 }
-.item-list-button:hover {
-  border: 2px solid var(--light);
-}
-.item-list-button:focus {
-  background-color: var(--primary);
-
-  border: 2px solid var(--primary-shadow);
-
-  box-shadow: inset 0px 1px 4px var(--primary-shadow);
-}
-
 @media (max-width: 768px) {
   table, thead, tbody, th, td, tr {
   display: block;
@@ -75,18 +61,17 @@ table {
   }
 tr {
   margin-bottom: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #0fc105;
   border-radius: 8px;
   padding: 10px;
   background: #fff;
   }
 
-      td {
+td {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  border: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #0bdf1a;
   }
 
 td:last-child {
@@ -98,6 +83,6 @@ td::before {
   font-weight: bold;
   flex: 1;
   padding-right: 10px;
-  color: #333;
+  color: #1aba0e;
     }
   }
