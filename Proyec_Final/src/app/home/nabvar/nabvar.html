@@ -1,29 +1,30 @@
-  <nav class="d-flex">
-    <!-- Logo -->
+<nav class="d-flex">
+  <!-- Logo -->
+  <div class="image-container">
+    <img src="Logo/Logo_principal.png" alt="">
+  </div>
 
-    <div class="image-container">
-        <img src="Logo/Logo_principal.png" alt="">
-    </div>
+  <!-- Links -->
+  <ul class="nav-links">
+    <li routerLink="/dashboard"><a>INICIO</a></li>
+    <li routerLink="/cascos"><a>CASCOS</a></li>
+    <li routerLink="/accesorios"><a>ACCESORIOS</a></li>
+    <li routerLink="/textil"><a>TEXTIL</a></li>
+  </ul>
 
-    <!-- Links -->
-    <ul class="nav-links">
-      <li routerLink="/dashboard"><a>INICIO</a></li>
-      <li routerLink="/cascos"><a>CASCOS</a></li>
-      <li routerLink="/accesorios"><a>ACCESORIOS</a></li>
-      <li routerLink="/textil"><a>TEXTIL</a></li>
-    </ul>
-
-    <!-- Derecha -->
-    <div class="nav-right">
-      @if (loguiado) {
+  <!-- Derecha: Login/Admin/Logout + Carrito -->
+  <div class="nav-right">
+    @if (!loguiado) {
+      <a routerLink="/loguin">Login</a>
+    }
+    @if (loguiado) {
       <a routerLink="/administrador">ADMIN</a>
-
-      }
-      @if (!loguiado) {
-      <a  routerLink="/loguin">Login</a>
-      }
-      @if(loguiado){
       <a (click)="logout()" routerLink="/login">Logout</a>
-      }
-    </div>
-  </nav>
+    }
+
+    <button class="cart-btn" (click)="openCart()" aria-label="Carrito">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span class="badge">{{ (count$ | async) ?? 0 }}</span>
+    </button>
+  </div>
+</nav>

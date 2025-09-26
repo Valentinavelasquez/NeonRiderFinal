@@ -1,33 +1,38 @@
-import { Component, inject } from '@angular/core';
-import { Product } from '../../services/product/product';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductService, Producto } from '../../services/product/product';
+import { CartService } from '../../services/cart/cart';
 
 @Component({
   selector: 'app-cascos',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './cascos.html',
-  styleUrl: './cascos.css'
+  styleUrls: ['./cascos.css']
 })
-export class Cascos {
+export default class Cascos implements OnInit {
+  private product = inject(ProductService);
+  private cart = inject(CartService);
 
-  productService = inject(Product)
-  items!:any
-  ngOnInit() {
-    this.renderCascos()
-  }
+  loading = true;
+  lista: Producto[] = [];
 
-  renderCascos() {
-    this.productService.getCascos().subscribe({
-      next:(dataApi:any)=> {
-        this.items= dataApi
+  ngOnInit(): void {
+    this.product.getCascos().subscribe({
+      next: (data) => {
+        this.lista = Array.isArray(data) ? data : [];
+        this.loading = false;
       },
-      error:(error:any)=> {
-        console.log(error);
-
-      }
-    })
+      error: () => (this.loading = false)
+    });
   }
 
+  addToCart(p: Producto) {
+    this.cart.add(p, 1);
+  }
 
-
-
+  formatCOP(v: number | undefined | null) {
+    const n = Number(v ?? 0);
+    return n.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+  }
 }

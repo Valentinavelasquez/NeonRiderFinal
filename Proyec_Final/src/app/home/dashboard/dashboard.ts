@@ -1,35 +1,37 @@
-import { Component, inject } from '@angular/core';
-import { Carrusel } from "../carrusel/carrusel";
-import { RouterLink } from '@angular/router';
-import { Product } from '../../services/product/product';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductService, Producto } from '../../services/product/product';
+import { Carrusel } from '../carrusel/carrusel';
+import { CartService } from '../../services/cart/cart';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Carrusel,RouterLink],
+  standalone: true,
+  imports: [CommonModule, Carrusel],
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css'
+  styleUrls: ['./dashboard.css'],
 })
-export class Dashboard {
-    items!: any
+export default class Dashboard implements OnInit {
+  private productService = inject(ProductService);
+  private cart = inject(CartService);
 
-    productService = inject(Product)
+  loading = true;
+  lista: Producto[] = [];
+  items: Producto[] = []; // usado en el HTML
 
-
-
-
-ngOnInit() {
-this.renderProduct()
-}
-
-renderProduct() {
+  ngOnInit(): void {
     this.productService.getCascos().subscribe({
-        next:(dataApi:any)=> {
-            this.items = dataApi
-        },
-        error:(error:any)=> {
-            console.log(error);
+      next: (rows) => {
+        this.lista = (rows ?? []) as Producto[];
+        this.items = this.lista;
+        this.loading = false;
+      },
+      error: () => (this.loading = false),
+    });
+  }
 
-        }
-    })
+  // llamado desde el template del dashboard
+  addToCart(p: Producto): void {
+    this.cart.add(p, 1);
   }
 }
