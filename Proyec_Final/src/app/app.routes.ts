@@ -1,15 +1,9 @@
 import { Routes } from '@angular/router';
-import { Footer } from './home/footer/footer';
-import { Nabvar } from './home/nabvar/nabvar';
-import { Loguin } from './public/loguin/loguin';
-import { Dashboard } from './home/dashboard/dashboard';
-import { Registro } from './public/registro/registro';
-import { Carrusel } from './home/carrusel/carrusel';
-import { Component } from '@angular/core';
-import { Administrador } from './private/administrador/administrador';
-import { RouterLink } from '@angular/router';
+
+
+import Dashboard from './home/dashboard/dashboard';
+import Cascos    from './home/cascos/cascos';
 import { Accesorios } from './home/accesorios/accesorios';
-import { Cascos } from './home/cascos/cascos';
 import { Textil } from './home/textil/textil';
 import { CascosIntegrales } from './home/cascos-integrales/cascos-integrales';
 import { CascosAbatibles } from './home/cascos-abatibles/cascos-abatibles';
@@ -18,13 +12,16 @@ import { CascosCross } from './home/cascos-cross/cascos-cross';
 import { CascosModulares } from './home/cascos-modulares/cascos-modulares';
 import { CascosMultiproposito } from './home/cascos-multiproposito/cascos-multiproposito';
 import { Visualizacion } from './home/visualizacion/visualizacion';
+import { Registro } from './public/registro/registro';
+import { Carrusel } from './home/carrusel/carrusel';
+import { Loguin } from './public/loguin/loguin';
 export const routes: Routes = [
   {path:"", redirectTo:"dashboard", pathMatch: "full"},
   {path:"loguin", component:Loguin, pathMatch: "full"},
   {path:"carrusel", component:Carrusel},
   {path:"dashboard", component:Dashboard},
   {path:"registro", component:Registro},
-  {path:"administrador", component:Administrador},
+//   {path:"administrador", component:Administrador},
   {path:"accesorios", component:Accesorios},
   {path:"cascos", component:Cascos},
   {path:"textil", component:Textil},
@@ -36,6 +33,5 @@ export const routes: Routes = [
   {path:"cascosmultiproposito", component:CascosMultiproposito},
   {path:"visualizaciones", component:Visualizacion},
   { path: "**", redirectTo: "error-404", pathMatch: "full"}
+
 ];
-
-

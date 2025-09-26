@@ -1,13 +1,19 @@
-<div class="card" style="width: 18rem;">
-  <img src="Cascos/integral_2.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button class="button">
-    <span class="button_lg">
-        <span class="button_sl"></span>
-        <span class="button_text">Agregar al carrito</span>
-    </span>
-    </button>
-  </div>
+<div class="contenedor-accesorios">
+  @for (p of productos; track p.id) {
+    <div class="card" style="width: 18rem;">
+      <img [src]="p.img" class="card-img-top" [alt]="p.nombre" />
+      <div class="card-body">
+        <h5 class="card-title">{{ p.nombre }}</h5>
+        <p class="card-text">{{ p.descripcion }}</p>
+        <p class="card-price">{{ formatCOP(p.precio) }}</p>
+
+        <button class="button" (click)="addToCart(p)">
+          <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Agregar al carrito</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  }
 </div>

@@ -335,3 +335,62 @@ margin-right: 60px;
   border-color: #19bb1f;
   outline: none;
 }
+/* ---- TIPOS DE CASCO (chips) ---- */
+.container-tipos-de-cascos {
+  display: block;
+  width: 100%;
+  margin: 40px 0 10px 0;
+}
+
+.tu-estilo {
+  padding: 0 28px;
+  font-weight: bold;
+  color: #000;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  gap: 18px;
+  padding: 10px 28px 0 28px;
+}
+@media (max-width: 992px) {
+  .chips { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+  .chips { grid-template-columns: repeat(2, 1fr); }
+}
+
+.chip {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icono {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: grid; place-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08) inset;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.icono img {
+  width: 70px; height: auto;
+  transition: transform .25s ease;
+}
+.chip:hover .icono {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+.chip span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* (el resto de tu CSS del dashboard mantiene igual) */

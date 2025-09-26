@@ -2,6 +2,7 @@
 
 <!-- carrusel de cards -->
 <div class="cards-container">
+<<<<<<< HEAD
     <!-- Card 1 -->
     <div class="card card-red">
       <h3>PRODUCTOS POR MENOS DE</h3>
@@ -69,49 +70,129 @@
       <p routerLink="/cascosmodulares">Modulares</p>
 
   </div>
+=======
+  <div class="card card-red">
+    <h3>PRODUCTOS POR MENOS DE</h3>
+    <h2>$150.000</h2>
+    <img src="Accesorios/chaqueta_4.jpg" alt="Casco">
+    <a href="#">VER MÁS</a>
+>>>>>>> e837aa4 (carrito de compras funcional)
   </div>
 
-  <!--cards de productos-->
-<div class="carrusel d-flex justify-content-center gap-5">
-    @for (item of items; track $index) {
-        <div class="card" style="width: 18rem;">
-        <img src="{{item.Imagen}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{item.referencia}}</h5>
-            <p class="card-text">{{item.Descripcion}}</p>
-            <button class="button">
-            <span class="button_lg">
-                <span class="button_sl"></span>
-                <span class="button_text">Agregar al carrito</span>
-            </span>
-            </button>
-                <!-- segundo botonn card -->
-                <button routerLink="/cascos" class="button">
-            <span class="button_lg">
-                <span class="button_sl"></span>
-                <span  class="button_text">Ver más</span>
-            </span>
-            </button>
-        </div>
-        </div>
+  <div class="card card-gray">
+    <h3>COMPLETA TU PINTA</h3>
+    <img src="Accesorios/chaqueta_5.jpg" alt="Ropa">
+    <a routerLink="/textil">VER MÁS</a>
+  </div>
 
-    }
+  <div class="card card-blue">
+    <h3>PAGA EN CUOTAS</h3>
+    <h2>Addi</h2>
+    <a href="https://co.addi.com/">¡LO QUIERO!</a>
+  </div>
 
+  <div class="card card-orange">
+    <h3>ARMA TU COMBO<br>POR MENOS DE<br>$300.000</h3>
+    <img src="Accesorios/impermeable_3.jpg" alt="Combo">
+    <a routerLink="/accesorios">VER MÁS</a>
+  </div>
 
+  <div class="card card-purple">
+    <h3>LO ÚLTIMO EN COLECCIONES</h3>
+    <img src="Cascos/integral_3.jpg" alt="Casco morado">
+    <a routerLink="/cascos">VER MÁS</a>
+  </div>
 </div>
 
-<!-- elige tu estilo -->
-<!-- <div class="tu_estilo">
-  <img  src="https://inducascos.vtexassets.com/arquivos/fondo-elige-tu-estilo.jpg" alt="">
-</div> -->
+<!-- compra por tipo de casco -->
+<div class="container-tipos-de-cascos">
+  <h2 class="tu-estilo">COMPRA POR EL TIPO DE CASCO QUE SE ADAPTE MEJOR A TU ESTILO</h2>
+
+  <div class="chips">
+    <div class="chip" routerLink="/cascos">
+      <div class="icono">
+        <img src="https://inducascos.vtexassets.com/assets/vtex.file-manager-graphql/images/740a4bdb-f942-473f-9102-96688cb60c6c___82c3ee954c53493515661eae05953b17.png" alt="Integrales">
+      </div>
+      <span>Integrales</span>
+    </div>
+
+    <div class="chip" routerLink="/cascos">
+      <div class="icono">
+        <img src="https://inducascos.vtexassets.com/assets/vtex.file-manager-graphql/images/2ad4b23f-90fb-455a-9de7-2fc095e831c9___5cda00f721228dcad0f359aa58841a7f.png" alt="Abatibles">
+      </div>
+      <span>Abatibles</span>
+    </div>
+
+    <div class="chip" routerLink="/cascos">
+      <div class="icono">
+        <img src="https://inducascos.vtexassets.com/assets/vtex.file-manager-graphql/images/419e270f-81f9-4990-9085-a5f2f4cbb73f___ab4db726d54555aae5c55d197468b94d.png" alt="Abiertos">
+      </div>
+      <span>Abiertos</span>
+    </div>
+
+    <div class="chip" routerLink="/cascos">
+      <div class="icono">
+        <img src="https://inducascos.vtexassets.com/assets/vtex.file-manager-graphql/images/2c0f0070-9079-4a2a-bb67-9b1f88dce05a___d821d861aae75ae7099a5301f2764d8f.png" alt="Multipropositos">
+      </div>
+      <span>Multipropositos</span>
+    </div>
+
+    <div class="chip" routerLink="/cascos">
+      <div class="icono">
+        <img src="https://inducascos.vtexassets.com/assets/vtex.file-manager-graphql/images/ab4b9942-4556-4883-93e5-be8032f40688___1a3b7395b6a0b482bb9a842289c06501.png" alt="Cross">
+      </div>
+      <span>Cross</span>
+    </div>
+
+    <div class="chip" routerLink="/cascos">
+      <div class="icono">
+        <img src="https://inducascos.vtexassets.com/assets/vtex.file-manager-graphql/images/ab4b9942-4556-4883-93e5-be8032f40688___1a3b7395b6a0b482bb9a842289c06501.png" alt="Modulares">
+      </div>
+      <span>Modulares</span>
+    </div>
+  </div>
+</div>
+
+<!-- cards de productos -->
+<div class="carrusel d-flex justify-content-center gap-5">
+  @for (item of items; track $index) {
+    <div class="card" style="width: 18rem;">
+      <img
+        class="card-img-top"
+        [src]="item['Imagen'] || item['img']"
+        [alt]="item['referencia'] || item['nombre'] || 'Producto'"
+      >
+      <div class="card-body">
+        <h5 class="card-title">{{ item['referencia'] || item['nombre'] }}</h5>
+        <p class="card-text">{{ item['Descripcion'] || item['descripcion'] }}</p>
+
+        <button class="button" (click)="addToCart(item)">
+          <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Agregar al carrito</span>
+          </span>
+        </button>
+
+        <button routerLink="/cascos" class="button">
+          <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Ver más</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  }
+</div>
 
 <div class="container-subscripcion">
-  <div><img class =imagen-subscripcion src="https://i.pinimg.com/1200x/d3/1f/b0/d31fb09aae751de65f8416e289743faf.jpg" alt=""></div>
+  <div>
+    <img class="imagen-subscripcion" src="https://i.pinimg.com/1200x/d3/1f/b0/d31fb09aae751de65f8416e289743faf.jpg" alt="">
+  </div>
   <h2 class="comunidad">¡Haz parte de la comunidad NeonRaider!</h2>
   <h3 class="comunidad-2">Suscríbete y entérate de nuestras promociones, eventos</h3>
   <h3 class="comunidad-2">y las últimas noticias.</h3>
-<div class="input-group">
+  <div class="input-group">
     <input type="email" class="input" id="Email" name="Email" placeholder="estiloRider@neonrider.io" autocomplete="off">
     <input class="button--submit" value="Subscribete" type="submit">
-</div>
+  </div>
 </div>

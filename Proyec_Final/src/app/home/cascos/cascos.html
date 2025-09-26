@@ -1,45 +1,30 @@
-<div class="d-flex gap-3 justify-content-center casco">
+<section class="container">
+  <h2 class="title">Cascos</h2>
 
-      @for (item of items; track $index) {
+  @if (loading) {
+    <p>Cargando productos...</p>
+  } @else {
+    @if (lista.length > 0) {
+      <div class="grid">
+        @for (p of lista; track p._id ?? p['id'] ?? p['referencia'] ?? $index) {
+          <article class="card">
+            <img
+              [src]="p['Imagen'] || p['img']"
+              [alt]="p['referencia'] || p['nombre'] || 'Casco'"
+            />
 
-            <div class="card" style="width: 18rem;">
-            <img src="{{item.Imagen}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{item.Marca}}</h5>
-              <p class="card-text">{{item.Descripcion}}</p>
-              <p class="card-text">{{item.Precio}}</p>
-            <div class="size">
-              <span>Tallas</span>
-              <ul class="list-size">
-                <li class="item-list"><button class="item-list-button">S</button></li>
-                <li class="item-list"><button class="item-list-button">M</button></li>
-                <li class="item-list"><button class="item-list-button">L</button></li>
-                <li class="item-list"><button class="item-list-button">XL</button></li>
-                <li class="item-list"><button class="item-list-button">XXL</button></li>
-              </ul>
+            <h3 class="name">{{ p['referencia'] || p['nombre'] }}</h3>
+            <p class="desc">{{ p['Descripcion'] || p['descripcion'] }}</p>
+
+            <div class="meta">
+              <strong>{{ formatCOP(p['Precio'] ?? p['precio']) }}</strong>
+              <button (click)="addToCart(p)">Agregar al carrito</button>
             </div>
-            <!-- colores -->
-            <label class="cyberpunk-checkbox-label">
-            <input type="checkbox" class="cyberpunk-checkbox">Negro</label>
-            <label class="cyberpunk-checkbox-label">
-            <input type="checkbox" class="cyberpunk-checkbox">Azul</label>
-            <label class="cyberpunk-checkbox-label">
-            <input type="checkbox" class="cyberpunk-checkbox">Multicolor</label>
-
-            <!--  -->
-              <button class="button">
-              <span class="button_lg">
-                  <span class="button_sl"></span>
-                  <span class="button_text">Agregar al carrito</span>
-              </span>
-              </button>
-            </div>
-            </div>
-
-
-
-      }
-</div>
-
-
-
+          </article>
+        }
+      </div>
+    } @else {
+      <p>No hay productos disponibles.</p>
+    }
+  }
+</section>

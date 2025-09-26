@@ -1,0 +1,56 @@
+<!-- Drawer -->
+<div class="drawer" [class.open]="(isOpen$ | async) === true">
+  <div class="overlay" (click)="close()"></div>
+
+  <aside class="panel">
+    <header class="panel-header">
+      <h3>Carrito</h3>
+      <button class="close" (click)="close()" aria-label="Cerrar">✕</button>
+    </header>
+
+    <section class="panel-body">
+
+      @if (items$ | async; as items) {
+
+        @if (items.length === 0) {
+          <p class="empty">Tu carrito está vacío.</p>
+        } @else {
+          <ul class="items">
+            @for (it of items; track it.id) {
+              <li class="item">
+                <img
+                  [src]="$any(it).imagen || $any(it).raw?.Imagen || $any(it).raw?.img"
+                  [alt]="$any(it).nombre" />
+
+                <div class="info">
+                  <div class="title">{{ $any(it).nombre }}</div>
+                  <div class="desc">{{ $any(it).descripcion }}</div>
+                  <div class="meta">
+                    <span>Cant: {{ $any(it).qty }}</span>
+                    <span>Precio: {{ formatCOP($any(it).precio) }}</span>
+                    <span>Total: {{ formatCOP(($any(it).precio || 0) * ($any(it).qty || 1)) }}</span>
+                  </div>
+                </div>
+
+                <button class="remove" (click)="remove($any(it).id)" aria-label="Quitar">🗑</button>
+              </li>
+            }
+          </ul>
+        }
+
+        @if (items.length > 0) {
+          <footer class="panel-footer">
+            <div class="line">
+              <span>Subtotal</span>
+              <strong>{{ formatCOP((total$ | async) || 0) }}</strong>
+            </div>
+            <div class="actions">
+              <button class="clear" (click)="clear()">Vaciar</button>
+              <button class="checkout" (click)="checkout()">Finalizar compra</button>
+            </div>
+          </footer>
+        }
+      }
+    </section>
+  </aside>
+</div>

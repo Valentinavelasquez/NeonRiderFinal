@@ -1,68 +1,100 @@
-    /* NAVBAR */
-    nav {
-      z-index: 2;
-      position: fixed;
-      top: 0;
-      left: 0;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      background:rgba(0,0,0,.05); backdrop-filter: blur(6px);
-      padding: 15px 20px;
-    }
-    ul .desplegable{
-      display: block;
-    }
+nav {
+  z-index: 2;
+  position: fixed;
+  top: 0; left: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgba(0,0,0,.05);
+  backdrop-filter: blur(6px);
+  padding: 15px 20px;
+}
 
-    /* Logo */
-    .image-container img{
-      top: 6px;
-      left: 15px;
-      width: 70px;
-      height: auto;
-    }
+/* Logo */
+.image-container img {
+  width: 70px; height: auto;
+}
 
-    .image-container img{
-      font-size: 22px;
-      margin-right: 8px;
-    }
+/* Enlaces */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
 
-    /* Enlaces */
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(55, 224, 40);
+  font-size: 20px;
+  transition: 0.3s;
+}
+.nav-links li a:hover { color: rgb(55, 224, 40); }
 
-    .nav-links li a {
-      text-decoration: none;
-      color: rgb(55, 224, 40);
-      font-size: 20px;
-      transition: 0.3s;
-    }
+/* Derecha */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-right a {
+  text-decoration: none;
+  color: rgb(55, 224, 40);
+  font-size: 20px;
+  transition: 0.3s;
+}
+.nav-right a:hover { color: rgb(55, 224, 40); }
 
-    .nav-links li a:hover {
-      color: rgb(55, 224, 40);
-    }
+/* Botón carrito */
+.cart-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: transparent;
+  color: rgb(55, 224, 40);
+  cursor: pointer;
+}
+.cart-btn ion-icon { font-size: 22px; }
 
-    /* Sección derecha */
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+/* Badge del contador */
+.badge {
+  position: absolute;
+  top: -6px; right: -6px;
+  min-width: 18px; height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: rgb(55, 224, 40);
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
 
-    .nav-right a {
-      text-decoration: none;
-      color: rgb(55, 224, 40);
-      font-size: 20px;
-      transition: 0.3s;
-    }
+/* Clickable links */
+ul li a { cursor: pointer; }
 
-    .nav-right a:hover {
-      color: rgb(55, 224, 40);
-    }
-
-    ul li a {
-      cursor: pointer;
-    }
+.cart-btn{
+  position: relative;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.cart-btn ion-icon{
+  font-size: 24px;
+  color: rgb(55, 224, 40);
+  vertical-align: middle;
+}
+.badge{
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff2d2d;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+  padding: 2px 6px;
+}
