@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './carrusel.html',
   styleUrls: ['./carrusel.css'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA], // permite <ion-icon> si luego los usas
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Carrusel {
   @ViewChild('slider', { static: true }) sliderRef!: ElementRef<HTMLUListElement>;

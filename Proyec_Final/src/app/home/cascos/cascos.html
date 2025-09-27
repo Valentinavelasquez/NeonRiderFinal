@@ -60,4 +60,33 @@
 </div>
 
 
+<section class="container">
+  <h2 class="title">Cascos</h2>
 
+  @if (loading) {
+    <p>Cargando productos...</p>
+  } @else {
+    @if (lista.length > 0) {
+      <div class="grid">
+        @for (p of lista; track p._id ?? p['id'] ?? p['referencia'] ?? $index) {
+          <article class="card">
+            <img
+              [src]="p['Imagen'] || p['img']"
+              [alt]="p['referencia'] || p['nombre'] || 'Casco'"
+            />
+
+            <h3 class="name">{{ p['referencia'] || p['nombre'] }}</h3>
+            <p class="desc">{{ p['Descripcion'] || p['descripcion'] }}</p>
+
+            <div class="meta">
+              <strong>{{ formatCOP(p['Precio'] ?? p['precio']) }}</strong>
+              <button (click)="addToCart(p)">Agregar al carrito</button>
+            </div>
+          </article>
+        }
+      </div>
+    } @else {
+      <p>No hay productos disponibles.</p>
+    }
+  }
+</section>
