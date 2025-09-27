@@ -86,11 +86,12 @@
             </span>
             </button>
                 <!-- segundo botonn card -->
-                <button routerLink="/cascos" class="button">
-            <span class="button_lg">
-                <span class="button_sl"></span>
+            <button [routerLink]="['/visualizaciones',item._id]" class="button">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
                 <span  class="button_text">Ver más</span>
-            </span>
+                    <span  class="button_text">Ver más</span>
+                </span>
             </button>
         </div>
         </div>

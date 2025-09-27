@@ -27,7 +27,7 @@ export const routes: Routes = [
   {path:"registro", component:Registro},
   {path:"administrador", component:Administrador},
   {path:"accesorios", component:Accesorios},
-  {path:"cascos", component:Cascos},
+  {path:"cascos/:categoria", component:Cascos},
   {path:"textil", component:Textil},
   {path:"cascosintegrales", component:CascosIntegrales},
   {path:"cascosabatibles", component:CascosAbatibles},
@@ -35,7 +35,7 @@ export const routes: Routes = [
   {path:"cascoscross", component:CascosCross},
   {path:"cascosmodulares", component:CascosModulares},
   {path:"cascosmultiproposito", component:CascosMultiproposito},
-  {path:"visualizaciones", component:Visualizacion},
+  {path:"visualizaciones/:id", component:Visualizacion},
   {path:"sobre-nosotros", component:SobreNosotros},
   { path: "**", redirectTo: "error-404", pathMatch: "full"}
 ];

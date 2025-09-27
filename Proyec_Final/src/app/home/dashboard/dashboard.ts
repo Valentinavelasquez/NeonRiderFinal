@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Carrusel } from "../carrusel/carrusel";
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product } from '../../services/product/product';
 
 @Component({
