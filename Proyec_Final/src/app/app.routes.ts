@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-
 import Dashboard from './home/dashboard/dashboard';
 import Cascos    from './home/cascos/cascos';
 import { Accesorios } from './home/accesorios/accesorios';
@@ -15,23 +14,24 @@ import { Visualizacion } from './home/visualizacion/visualizacion';
 import { Registro } from './public/registro/registro';
 import { Carrusel } from './home/carrusel/carrusel';
 import { Loguin } from './public/loguin/loguin';
-export const routes: Routes = [
-  {path:"", redirectTo:"dashboard", pathMatch: "full"},
-  {path:"loguin", component:Loguin, pathMatch: "full"},
-  {path:"carrusel", component:Carrusel},
-  {path:"dashboard", component:Dashboard},
-  {path:"registro", component:Registro},
-//   {path:"administrador", component:Administrador},
-  {path:"accesorios", component:Accesorios},
-  {path:"cascos", component:Cascos},
-  {path:"textil", component:Textil},
-  {path:"cascosintegrales", component:CascosIntegrales},
-  {path:"cascosabatibles", component:CascosAbatibles},
-  {path:"cascosabiertos", component:CascosAbiertos},
-  {path:"cascoscross", component:CascosCross},
-  {path:"cascosmodulares", component:CascosModulares},
-  {path:"cascosmultiproposito", component:CascosMultiproposito},
-  {path:"visualizaciones", component:Visualizacion},
-  { path: "**", redirectTo: "error-404", pathMatch: "full"}
+import { Personalizacion } from './home/personalizacion/personalizacion';
 
+export const routes: Routes = [
+  { path: "", redirectTo: "dashboard", pathMatch: "full" },
+  { path: "loguin", component: Loguin, pathMatch: "full" },
+  { path: "carrusel", component: Carrusel },
+  { path: "dashboard", component: Dashboard },
+  { path: "registro", component: Registro },
+  { path: "accesorios", component: Accesorios },
+  { path: "cascos", component: Cascos },
+  { path: "textil", component: Textil },
+  { path: "personalizacion", component: Personalizacion },
+  { path: "cascosintegrales", component: CascosIntegrales },
+  { path: "cascosabatibles", component: CascosAbatibles },
+  { path: "cascosabiertos", component: CascosAbiertos },
+  { path: "cascoscross", component: CascosCross },
+  { path: "cascosmodulares", component: CascosModulares },
+  { path: "cascosmultiproposito", component: CascosMultiproposito },
+  { path: "visualizaciones", component: Visualizacion },
+  { path: "**", redirectTo: "error-404", pathMatch: "full" }
 ];

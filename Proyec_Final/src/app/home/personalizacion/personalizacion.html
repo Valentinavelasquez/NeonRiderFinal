@@ -1,0 +1,45 @@
+<section class="wrap" [style.--tint]="tint">
+  <aside class="panel">
+    <h2>Personalización de Casco</h2>
+
+    <div class="field">
+      <label>Material:</label>
+      <small>Tip: en el 3D separa las partes (pintura, mentonera, etc.) en materiales o
+        nombres distintos para poder cambiar el color por separado.</small>
+    </div>
+
+    <div class="field">
+      <label for="color">Color:</label>
+      <input id="color" type="color" [ngModel]="colorHex" (ngModelChange)="setColor($event)" />
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondary" (click)="reset()">Reiniciar</button>
+      <a class="btn-primary" routerLink="/cascos">Ver cascos</a>
+    </div>
+
+    <p class="hint">
+      Consejo: si más adelante exportas un casco con varias partes (visera, calota, detalles),
+      podrás mapear cada parte por ID o material usando el Scene Graph de model-viewer.
+    </p>
+  </aside>
+
+  <div class="viewer-wrap">
+    <!-- Visor 3D -->
+    <model-viewer
+      #mv
+      class="viewer"
+      [src]="currentSrc"
+      camera-controls
+      shadow-intensity="1"
+      tone-mapping="aces"
+      environment-image="neutral"
+      exposure="1.1"
+      (load)="onLoad()"
+      (error)="onError($event)">
+    </model-viewer>
+
+    <!-- Capa de tinte por encima (simple y rápida) -->
+    <div class="tint"></div>
+  </div>
+</section>

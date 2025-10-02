@@ -98,3 +98,13 @@ ul li a { cursor: pointer; }
   line-height: 1;
   padding: 2px 6px;
 }
+
+.nav-links li.personaliza a{
+  padding: 6px 12px;
+  border: 1px solid rgb(55, 224, 40);
+  border-radius: 10px;
+}
+.nav-links li.personaliza a:hover{
+  background: rgb(55, 224, 40);
+  color: #000;
+}

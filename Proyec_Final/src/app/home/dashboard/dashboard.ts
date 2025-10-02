@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ProductService, Producto } from '../../services/product/product';
 import { Carrusel } from '../carrusel/carrusel';
 import { CartService } from '../../services/cart/cart';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, Carrusel],
+  imports: [CommonModule, RouterLink ,Carrusel],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
