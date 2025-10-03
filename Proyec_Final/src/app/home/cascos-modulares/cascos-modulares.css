@@ -8,10 +8,12 @@ margin-top: 50px;
 h2{
   margin-top: 80px;
   margin-left: 30px;
+  color: white;
 }
 P{
   margin-right: 30px;
   margin-left: 30px;
+  color: white;
 }
 .icono{
   width: 120px;
@@ -33,7 +35,7 @@ P{
 .icono p {
 font-size: 14px;
 font-weight: bold;
-color: #000;
+color: #fff;
 text-transform: uppercase; /* texto en mayúscula */
 margin: 25px;
 text-align: center;

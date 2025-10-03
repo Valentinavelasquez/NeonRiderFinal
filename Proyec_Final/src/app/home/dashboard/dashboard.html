@@ -24,6 +24,7 @@
     <img src="Accesorios/chaqueta_5.jpg" alt="Ropa">
     <a routerLink="/textil">VER MÁS</a>
   </div>
+  <!--cards de productos-->
 
   <div class="card card-blue">
     <h3>PAGA EN CUOTAS</h3>
@@ -43,6 +44,33 @@
     <a routerLink="/cascos">VER MÁS</a>
   </div>
 </div>
+<!-- <div class="carrusel d-flex justify-content-center gap-2">
+    @for (item of items; track $index) {
+        <div class="card" style="width: 18rem;">
+        <img src="{{item.Imagen}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item.referencia}}</h5>
+            <p class="card-text">${{item.Precio}}</p>
+            <button class="button">
+            <span class="button_lg">
+                <span class="button_sl"></span>
+                <span class="button_text">Agregar al carrito</span>
+            </span>
+            </button>
+
+            <button [routerLink]="['/visualizaciones',item._id]" class="button">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                <span  class="button_text">Ver más</span>
+                    <span  class="button_text">Ver más</span>
+                </span>
+            </button>
+        </div>
+        </div>
+    }
+
+  </div>
+-->
 
 <!-- compra por tipo de casco -->
 <div class="container-tipos-de-cascos">
@@ -104,7 +132,6 @@
       >
       <div class="card-body">
         <h5 class="card-title">{{ item['referencia'] || item['nombre'] }}</h5>
-        <p class="card-text">{{ item['Descripcion'] || item['descripcion'] }}</p>
 
         <button class="button" (click)="addToCart(item)">
           <span class="button_lg">

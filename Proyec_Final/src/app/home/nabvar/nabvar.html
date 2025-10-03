@@ -7,7 +7,7 @@
   <!-- Links -->
   <ul class="nav-links">
     <li class="personaliza" routerLink="/dashboard"><a>INICIO</a></li>
-    <li class="personaliza" routerLink="/cascos"><a>CASCOS</a></li>
+    <li class="personaliza" routerLink="/cascos/todos"><a>CASCOS</a></li>
     <li class="personaliza" routerLink="/accesorios"><a>ACCESORIOS</a></li>
     <li class="personaliza" routerLink="/textil"><a>TEXTIL</a></li>
     <li class="personaliza" routerLink="/personalizacion"><a>PERSONALIZAR</a></li>
@@ -18,11 +18,16 @@
     @if (!loguiado) {
       <a routerLink="/loguin">Login</a>
     }
-    @if (loguiado) {
+    <!-- Links -->
+
+
+    <!-- Derecha -->
+    <div class="nav-right">
+      @if (loguiado) {
       <a routerLink="/administrador">ADMIN</a>
       <a (click)="logout()" routerLink="/login">Logout</a>
     }
-
+</div>
     <button class="cart-btn" (click)="openCart()" aria-label="Carrito">
       <ion-icon name="cart-outline"></ion-icon>
       <span class="badge">{{ (count$ | async) ?? 0 }}</span>

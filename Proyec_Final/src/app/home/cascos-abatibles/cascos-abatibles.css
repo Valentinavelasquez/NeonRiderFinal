@@ -1,3 +1,6 @@
+body{
+    background-color: #000;
+}
 .container-tipos-de-cascos h2 p{
 display: flex;
 justify-content: center;
@@ -8,10 +11,12 @@ margin-top: 50px;
 h2{
   margin-top: 80px;
   margin-left: 30px;
+  color: white;
 }
 P{
   margin-right: 30px;
   margin-left: 30px;
+  color: white;
 }
 
 .icono{
@@ -34,7 +39,7 @@ P{
 .icono p {
 font-size: 14px;
 font-weight: bold;
-color: #000;
+color: #fff;
 text-transform: uppercase; /* texto en mayúscula */
 margin: 25px;
 text-align: center;
@@ -43,6 +48,296 @@ text-align: center;
   padding: 28px;
   margin-left: 40px;
   font-weight: bold;
+}
+/* tarjeta */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000000;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.card {
+  margin:130px;
+  padding: 0px;
+  max-width: 100%;
+  max-height: 400px;
+  background-color: white;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 150px;
+  max-width: 100%;
+  max-height: 300px;
+  margin: 30px 70px 8px 70px;
+  align-items: center;
+}
+
+.card a {
+  margin-top: auto;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+}
+.title {
+  overflow: clip;
+
+  width: 100%;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--light);
+  text-transform: capitalize;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.size {
+  font-size: 0.75rem;
+  color: var(--light);
+  --primary-shadow: #14c112;
+}
+
+.list-size {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  margin-top: 0.25rem;
+}
+
+.list-size .item-list {
+  list-style: none;
+}
+
+.list-size .item-list-button {
+  cursor: pointer;
+
+  padding: 0.5rem;
+  background-color: var(--zinc-800);
+
+  font-size: 0.75rem;
+  color: var(--light);
+
+  border: 2px solid var(--zinc-800);
+  border-radius: 0.25rem;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.item-list-button:hover {
+  border: 2px solid var(--light);
+}
+.item-list-button:focus {
+  background-color: var(--primary);
+
+  border: 2px solid var(--primary-shadow);
+
+  box-shadow: inset 0px 1px 4px var(--primary-shadow);
+}
+
+
+/* Backgrounds */
+.card-red {
+  background: linear-gradient(135deg, #021307, #002147);
+  grid-row: span 2;
+
+}
+
+.card-gray {
+  background: linear-gradient(to right, #0346f4, #0e0772);
+}
+
+.card-blue {
+  background: linear-gradient(135deg, #002f8e, #0074ff);
+}
+
+.card-orange {
+  background: linear-gradient(135deg, #a84300, #ff7a00);
+}
+
+.card-purple {
+  background: linear-gradient(135deg, #250045, #50007a);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .card-red {
+    grid-row: auto;
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-red {
+    grid-column: auto;
+  }
+}
+
+/* card de productos */
+.carrusel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+
+    .carrusel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carrusel::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
+.card{
+  background-color: black;
+    border: 1px solid #ffffff;
+    display: flex;
+    justify-content: center;
+}
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #0f1923;
+  cursor: pointer;
+  position: relative;
+  padding: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  transition: all .15s ease;
+
+}
+
+.button::before,
+.button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #7D8082;
+  transition: all .15s ease;
+}
+
+.button::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.button::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.button:active,
+.button:focus {
+  outline: none;
+}
+
+.button:active::before,
+.button:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.button:active::before {
+  top: 3px;
+}
+
+.button:active::after {
+  bottom: 3px;
+}
+
+.button_lg {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0f1923;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #0f1923;
+}
+
+.button_lg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #0f1923;
+  transition: all .2s ease;
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: #46ff52;
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.button_text {
+  position: relative;
+}
+
+.button:hover {
+  color: #0f1923;
+}
+
+.button:hover .button_sl {
+  width: calc(100% + 15px);
+}
+
+.button:hover .button_lg::after {
+  background-color: #fff;
 }
 
 /* filtros ------------------------------------------------------- */

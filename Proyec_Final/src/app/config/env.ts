@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'https://github.com/Valentinavelasquez/NeonRiderFinal.git'
+  apiUrl: 'https://d3ialmb2cy79c5.cloudfront.net/NeonRider/api'
 };
