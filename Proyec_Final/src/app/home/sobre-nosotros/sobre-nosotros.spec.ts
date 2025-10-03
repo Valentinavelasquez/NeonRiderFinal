@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Private } from './private';
+import { SobreNosotros } from './sobre-nosotros';
 
-describe('Private', () => {
-  let component: Private;
-  let fixture: ComponentFixture<Private>;
+describe('SobreNosotros', () => {
+  let component: SobreNosotros;
+  let fixture: ComponentFixture<SobreNosotros>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Private]
+      imports: [SobreNosotros]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Private);
+    fixture = TestBed.createComponent(SobreNosotros);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

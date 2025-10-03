@@ -10,6 +10,8 @@ html, body {
 
 body {
   padding-top: var(--nav-h); /* deja espacio para el navbar fijo */
+    background: black !important;
+
 }
 
 img { max-width: 100%; display: block; }

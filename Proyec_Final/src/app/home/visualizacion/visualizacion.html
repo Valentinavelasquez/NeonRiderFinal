@@ -1,51 +1,44 @@
 <!-- imagen -->
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://inducascos.vtexassets.com/arquivos/ids/1792719-1200-auto?v=638840628475170000&width=1200&height=auto&aspect=true
-" class="d-block w-32">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{items.Imagen}}" class="d-block w-32">
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-  </div>
 </div>
 <!-- accesorios adicionales -->
 <table class="adicionales">
     <tr>
-      <td data-label="Propiedad">Selecciona la talla</td>
-      <ul class="list-size">
-        <li class="item-list"><button class="item-list-button">S</button></li>
-        <li class="item-list"><button class="item-list-button">M</button></li>
-        <li class="item-list"><button class="item-list-button">L</button></li>
-        <li class="item-list"><button class="item-list-button">XL</button></li>
-        <li class="item-list"><button class="item-list-button">XXL</button></li>
-      </ul>
-  </tr>
-  <tr>
-      <td data-label="Propiedad">Color del grafico</td>
-      <td data-label="Especificación">Azul</td>
-  </tr>
+        <td data-label="Propiedad">Selecciona la talla</td>
+        <ul class="list-size">
+            <li class="item-list"><button class="item-list-button">S</button></li>
+            <li class="item-list"><button class="item-list-button">M</button></li>
+            <li class="item-list"><button class="item-list-button">L</button></li>
+            <li class="item-list"><button class="item-list-button">XL</button></li>
+            <li class="item-list"><button class="item-list-button">XXL</button></li>
+        </ul>
+    </tr>
     <tr>
-      <td data-label="Propiedad">Acabado</td>
-      <td data-label="Especificación">Mate</td>
-  </tr>
-  <tr>
-      <td data-label="Propiedad">Color Visor</td>
-      <td data-label="Especificación">Negro/Azul/Plateado</td>
-  </tr>
-  <tr>
-      <td data-label="Propiedad">Color Cámaras</td>
-      <td data-label="Especificación">Negro</td>
-  </tr>
+        <td data-label="Propiedad">Color del grafico</td>
+        <td data-label="Especificación">{{items.Color}}</td>
+    </tr>
+    <tr>
+        <td data-label="Propiedad">Acabado</td>
+        <td data-label="Especificación">Mate</td>
+    </tr>
+    <tr>
+        <td data-label="Propiedad">Color Visor</td>
+        <td data-label="Especificación">Transparente/{{items.Color}}</td>
+    </tr>
+    <tr>
+        <td data-label="Propiedad">Color Cámaras</td>
+        <td data-label="Especificación">{{items.Color}}</td>
+    </tr>
 <!-- especificaciones -->
 <table>
   <tr>
       <td data-label="Propiedad">Tipo de casco</td>
-      <td data-label="Especificación">Modular</td>
+      <td data-label="Especificación">{{items.Tipo}}</td>
   </tr>
     <tr>
       <td data-label="Propiedad">Tipo de casco</td>

@@ -3,19 +3,69 @@ body {
   font-family: Arial, sans-serif;
   background: #000000;
 }
+/* carrusel de categorias */
+.container-tipos-de-cascos h2 p{
+display: flex;
+justify-content: center;
+gap: 40px;
+flex-wrap: wrap;
+margin-top: 50px;
+}
+h2{
+  margin-top: 80px;
+  margin-left: 30px;
+  color: white;
+}
+P{
+  margin-right: 30px;
+  margin-left: 30px;
+  color: white;
+}
+.icono{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+}
+.icono img{
+  width: 70px; /* tamaño del ícono dentro del círculo */
+  height: auto;
+  transition: transform 0.3s ease; /* animación suave */
+}
+.icono img:hover{
+  transform: translateY(-10px);
+}
+.icono p {
+font-size: 14px;
+font-weight: bold;
+color: #fff;
+text-transform: uppercase; /* texto en mayúscula */
+margin: 25px;
+text-align: center;
+}
+.tu-estilo{
+  padding: 28px;
+  margin-left: 40px;
+  font-weight: bold;
+}
 
+/* -------------------------------------------------- */
 .cards-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 40px;
+  grid-template-rows: 1fr 1fr;
+
 }
 
 .card {
-  margin-top: 120px;
-  margin-left: 40px;
-  padding: 5px;
+  margin:130px 20px 45px;
+  padding: 10px;
+  max-width: 100%;
+  max-height: 400px;
   background-color: white;
   color: white;
   position: relative;
@@ -28,10 +78,10 @@ body {
 }
 
 .card img {
-  width: auto;
-  max-width: 100%;
-  max-height: 450px;
-  margin: 20px 50px 0px;
+  width: 100px;
+  max-width: 90%;
+  max-height: 100px;
+  margin: 20px 40% 0px 25%;
 }
 
 .card a {
@@ -39,7 +89,7 @@ body {
   font-weight: bold;
   text-decoration: none;
   color: white;
-  font-size: 1.5em;
+  font-size: 10px;
 }
 .title {
   overflow: clip;
@@ -164,11 +214,9 @@ body {
     }
 .card{
   background-color: black;
-    border: 1px solid #ffffff;
+    border: 1px solid #0ac419;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
 }
 .button {
   -moz-appearance: none;
@@ -179,12 +227,13 @@ body {
   color: #0f1923;
   cursor: pointer;
   position: relative;
-  padding: 8px;
+  padding: 1px;
   margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
   transition: all .15s ease;
+
 }
 
 .button::before,
@@ -195,7 +244,7 @@ body {
   right: 0;
   left: 0;
   height: calc(50% - 5px);
-  border: 1px solid #7D8082;
+  border: 1px solid #0fc433;
   transition: all .15s ease;
 }
 
