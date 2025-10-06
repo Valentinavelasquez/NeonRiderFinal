@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Product } from '../../services/product/product';
 import Swal from 'sweetalert2';
+import { Accesorios } from '../../services/accesorios/accesorios';
 
 @Component({
   selector: 'app-administrador',
@@ -15,9 +16,11 @@ import Swal from 'sweetalert2';
 export class Administrador {
 
   productService = inject(Product)
+  accesorioService = inject(Accesorios)
 
     items!: any
   formProduct !: FormGroup
+  formAccesorio !: FormGroup
   idProduct!: string
 
   constructor(private fb: FormBuilder) {
@@ -29,9 +32,17 @@ export class Administrador {
       Tipo:"",
       Color: "Azul",
       Precio:""
+    }),
+    this.formAccesorio = fb.group({
+        Imagen:"",
+        Descripcion:"",
+        referencia:"",
+        Marca: "",
+        Talla:"",
+        Color: "Azul",
+        Precio:""
     })
   }
-
 
   ngOnInit() {
     this.renderProduct()
@@ -116,5 +127,74 @@ export class Administrador {
 
             }
         })
+  }
+
+  //----
+
+  createAccesorio() {
+    console.log(this.formAccesorio.value);
+    this.accesorioService.createAccesorio(this.formProduct.value).subscribe({
+      next:(dataApi: any)=> {
+              Swal.fire({
+                title:"¡Creado!",
+                icon:"success",
+                text:"Accesorio Creado!",
+                draggable:true
+              })
+              this.renderAccesorio()
+              this.formAccesorio.reset()
+      },
+      error:(error:any)=> {
+              Swal.fire({
+                title:"¡Error!",
+                icon:"warning",
+                text:"El Accesorio no se pudo crear!",
+                draggable:true
+              })
+      }
+    })
+  }
+
+  renderAccesorio() {
+    this.accesorioService.getAccesorio().subscribe({
+        next:(dataApi:any)=> {
+            this.items = dataApi
+        },
+        error:(error:any)=> {
+            console.log(error);
+
+        }
+    })
+  }
+
+  deleteAccesorio(id:string) {
+    this.accesorioService.deleteAccesorio(id).subscribe({
+        next:(dataApi:any)=>{
+            this.renderAccesorio()
+        },
+        error:(error:any)=> {
+        }
+    })
+  }
+
+  updateAccesorio(id:string) {
+    this.accesorioService.getOneAccesorio(id).subscribe({
+        next:(dataApi:any)=>{
+            this.formAccesorio.patchValue({
+                Imagen:dataApi.Imagen,
+                Descripcion:dataApi.Descripcion,
+                referencia:dataApi.referencia,
+                Marca:dataApi.Marca,
+                Talla:dataApi.Talla,
+                Color:dataApi.Color,
+                Precio:dataApi.Precio
+            })
+            this.idProduct = id
+        },
+        error:(error:any)=>{
+            console.log(error);
+        }
+    })
+
   }
 }
