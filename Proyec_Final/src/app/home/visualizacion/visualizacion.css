@@ -1,26 +1,28 @@
 body {
-  background-color: #000000;
-  font-family: Arial, sans-serif;
-  padding: 20px;
+background-color: #000000;
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+.carousel-item .active{
+    max-width: 80%;
 }
 table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #000000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    th, td {
-      padding: 12px 15px;
-      text-align: left;
-      border-bottom: 1px solid #0fc105;
-      color: #fff;
-    }
-
-    th {
-      font-weight: bold;
-      color: #fff;
-    }
+width: 100%;
+background: #000000;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+overflow: hidden;
+margin: 10px 10px 10px 10px;
+}
+th, td {
+padding: 12px 15px;
+text-align: left;
+border-bottom: 1px solid #0fc105;
+color: #fff;
+}
+th {
+font-weight: bold;
+color: #fff;
+}
 .table tr td th{
   display: block;
   width: 100%;
@@ -57,18 +59,17 @@ table {
 @media (max-width: 768px) {
   table, thead, tbody, th, td, tr {
   display: block;
-  width: 100%;
+  width: 97%;
   }
 tr {
   margin-bottom: 15px;
   border: 1px solid #0fc105;
   border-radius: 8px;
   padding: 10px;
-  background: #fff;
+  background: #000000;
   }
 
 td {
-  display: flex;
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #0bdf1a;
