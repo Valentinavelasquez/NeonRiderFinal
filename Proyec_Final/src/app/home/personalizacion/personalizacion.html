@@ -1,45 +1,44 @@
-<section class="wrap" [style.--tint]="tint">
-  <aside class="panel">
-    <h2>Personalización de Casco</h2>
-
-    <div class="field">
-      <label>Material:</label>
-      <small>Tip: en el 3D separa las partes (pintura, mentonera, etc.) en materiales o
-        nombres distintos para poder cambiar el color por separado.</small>
+<div class="personalizador">
+  <!-- Panel izquierdo: 2D -->
+  <section class="panel-izq">
+    <div class="face-tabs">
+      <button [class.activo]="selectedFace==='front'" (click)="selectFace('front')">Frontal</button>
+      <button [class.activo]="selectedFace==='left'"  (click)="selectFace('left')">Izquierda</button>
+      <button [class.activo]="selectedFace==='right'" (click)="selectFace('right')">Derecha</button>
+      <button [class.activo]="selectedFace==='back'"  (click)="selectFace('back')">Trasera</button>
+      <button [class.activo]="selectedFace==='top'"   (click)="selectFace('top')">Superior</button>
     </div>
 
-    <div class="field">
-      <label for="color">Color:</label>
-      <input id="color" type="color" [ngModel]="colorHex" (ngModelChange)="setColor($event)" />
+    <canvas #canvas2d class="mask-canvas" width="480" height="480"></canvas>
+
+    <div class="grupo">
+      <label>Imagen: </label>
+      <input type="file" accept="image/*" (change)="pickImage($event)" />
+      <button class="btn" (click)="clearImage()">Quitar imagen</button>
     </div>
 
-    <div class="actions">
-      <button class="btn-secondary" (click)="reset()">Reiniciar</button>
-      <a class="btn-primary" routerLink="/cascos">Ver cascos</a>
+    <div class="grupo">
+      <label>Patrones:</label>
+      <div class="row">
+        <button class="btn" (click)="applyPattern('stripes')">Rayas</button>
+        <button class="btn" (click)="applyPattern('stars')">Estrellas</button>
+        <button class="btn" (click)="removePattern()">Sin patrón</button>
+      </div>
     </div>
 
-    <p class="hint">
-      Consejo: si más adelante exportas un casco con varias partes (visera, calota, detalles),
-      podrás mapear cada parte por ID o material usando el Scene Graph de model-viewer.
-    </p>
-  </aside>
+    <div class="grupo">
+      <label>Texto</label>
+      <input class="text-input" type="text" placeholder="Tu texto" (input)="onTextChange($event)" />
+      <input type="color" value="#ffffff" (input)="onColorChange($event)" />
+      <button class="btn" (click)="addText()">Añadir texto</button>
+      <button class="btn danger" (click)="clearFace()">Limpiar esta área</button>
+    </div>
 
-  <div class="viewer-wrap">
-    <!-- Visor 3D -->
-    <model-viewer
-      #mv
-      class="viewer"
-      [src]="currentSrc"
-      camera-controls
-      shadow-intensity="1"
-      tone-mapping="aces"
-      environment-image="neutral"
-      exposure="1.1"
-      (load)="onLoad()"
-      (error)="onError($event)">
-    </model-viewer>
+    <div class="tips">Arrastra para rotar · Rueda para zoom · OrbitControls</div>
+  </section>
 
-    <!-- Capa de tinte por encima (simple y rápida) -->
-    <div class="tint"></div>
-  </div>
-</section>
+  <!-- Panel derecho: visor 3D -->
+  <section class="panel-der">
+    <div #viewer3d class="viewer3d"></div>
+  </section>
+</div>

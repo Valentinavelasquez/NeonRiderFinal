@@ -19,33 +19,22 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              { "glob": "**/*", "input": "public" },
+              { "glob": "**/*", "input": "src/assets" }
             ],
             "styles": [
-                "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                "src/styles.css"
-
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
-            },
+          },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
+                { "type": "initial", "maximumWarning": "500kB", "maximumError": "1MB" },
+                { "type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB" }
               ],
               "outputHashing": "all"
             },
@@ -60,31 +49,20 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "Proyec_Final:build:production"
-            },
-            "development": {
-              "buildTarget": "Proyec_Final:build:development"
-            }
+            "production": { "buildTarget": "Proyec_Final:build:production" },
+            "development": { "buildTarget": "Proyec_Final:build:development" }
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
-        },
+        "extract-i18n": { "builder": "@angular/build:extract-i18n" },
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": [ "zone.js", "zone.js/testing" ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              { "glob": "**/*", "input": "public" },
+              { "glob": "**/*", "input": "src/assets" }
             ]
           }
         }

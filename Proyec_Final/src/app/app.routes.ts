@@ -16,6 +16,8 @@ import { Administrador} from './private/administrador/administrador';
 import { Registro } from './public/registro/registro';
 import { Carrusel } from './home/carrusel/carrusel';
 import { Loguin } from './public/loguin/loguin';
+import { PersonalizacionComponent } from './home/personalizacion/personalizacion';
+
 
 export const routes: Routes = [
   {path:"", redirectTo:"dashboard", pathMatch: "full"},
@@ -35,5 +37,6 @@ export const routes: Routes = [
   {path:"cascosmultiproposito", component:CascosMultiproposito},
   {path:"visualizaciones/:id", component:Visualizacion},
   {path:"sobre-nosotros", component:SobreNosotros},
+  {path:"personalizar", component:PersonalizacionComponent},
   { path: "**", redirectTo: "error-404", pathMatch: "full"}
 ];
