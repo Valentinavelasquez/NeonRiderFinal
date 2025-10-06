@@ -1,43 +1,60 @@
 <div class="personalizador">
-  <!-- Panel izquierdo: 2D -->
+  <!-- Panel izquierdo -->
   <section class="panel-izq">
-    <div class="face-tabs">
-      <button [class.activo]="selectedFace==='front'" (click)="selectFace('front')">Frontal</button>
-      <button [class.activo]="selectedFace==='left'"  (click)="selectFace('left')">Izquierda</button>
-      <button [class.activo]="selectedFace==='right'" (click)="selectFace('right')">Derecha</button>
-      <button [class.activo]="selectedFace==='back'"  (click)="selectFace('back')">Trasera</button>
-      <button [class.activo]="selectedFace==='top'"   (click)="selectFace('top')">Superior</button>
+    <div class="areas">
+      <button (click)="selectFace('front')"  [class.activo]="selectedFace==='front'">Frontal</button>
+      <button (click)="selectFace('left')"   [class.activo]="selectedFace==='left'">Izquierda</button>
+      <button (click)="selectFace('right')"  [class.activo]="selectedFace==='right'">Derecha</button>
+      <button (click)="selectFace('back')"   [class.activo]="selectedFace==='back'">Trasera</button>
+      <button (click)="selectFace('top')"    [class.activo]="selectedFace==='top'">Superior</button>
     </div>
 
-    <canvas #canvas2d class="mask-canvas" width="480" height="480"></canvas>
+    <canvas #preview class="preview" width="256" height="256"></canvas>
 
     <div class="grupo">
-      <label>Imagen: </label>
+      <label>Imagen:</label>
       <input type="file" accept="image/*" (change)="pickImage($event)" />
       <button class="btn" (click)="clearImage()">Quitar imagen</button>
     </div>
 
     <div class="grupo">
       <label>Patrones:</label>
-      <div class="row">
+      <div class="fila">
         <button class="btn" (click)="applyPattern('stripes')">Rayas</button>
         <button class="btn" (click)="applyPattern('stars')">Estrellas</button>
-        <button class="btn" (click)="removePattern()">Sin patrón</button>
+        <button class="btn ghost" (click)="removePattern()">Sin patrón</button>
       </div>
     </div>
 
-    <div class="grupo">
-      <label>Texto</label>
-      <input class="text-input" type="text" placeholder="Tu texto" (input)="onTextChange($event)" />
-      <input type="color" value="#ffffff" (input)="onColorChange($event)" />
-      <button class="btn" (click)="addText()">Añadir texto</button>
-      <button class="btn danger" (click)="clearFace()">Limpiar esta área</button>
+    <div class="grupo sliders">
+      <div class="fila">
+        <span>Zoom</span>
+        <input type="range" min="0" max="1" step="0.01"
+               [value]="faces[selectedFace].scale"
+               (input)="onZoomInput($event)">
+      </div>
+      <div class="fila">
+        <span>Rotación</span>
+        <input type="range" min="-180" max="180" step="1"
+               [value]="faces[selectedFace].rotDeg"
+               (input)="onRotInput($event)">
+      </div>
+      <div class="fila">
+        <span>Offset X</span>
+        <input type="range" min="-1" max="1" step="0.01"
+               [value]="faces[selectedFace].offsetX"
+               (input)="onOffsetXInput($event)">
+      </div>
+      <div class="fila">
+        <span>Offset Y</span>
+        <input type="range" min="-1" max="1" step="0.01"
+               [value]="faces[selectedFace].offsetY"
+               (input)="onOffsetYInput($event)">
+      </div>
     </div>
-
-    <div class="tips">Arrastra para rotar · Rueda para zoom · OrbitControls</div>
   </section>
 
-  <!-- Panel derecho: visor 3D -->
+  <!-- Visor 3D -->
   <section class="panel-der">
     <div #viewer3d class="viewer3d"></div>
   </section>
