@@ -13,10 +13,17 @@
     <li class="personaliza" routerLink="/dashboard"><a>INICIO</a></li>
     <li class="personaliza" routerLink="/cascos/todos"><a>CASCOS</a></li>
     <li class="personaliza" routerLink="/accesorios"><a>ACCESORIOS</a></li>
+    @if (!loguiado) {
+        <li class="personaliza" routerLink="/loguin"><a>LOGIN</a></li>
+    }
+    @if (loguiado) {
+        <li class="personaliza" routerLink="/administrador"><a>ADMIN</a></li>
+        <li class="personaliza" routerLink="/login"><a>LOGOUT</a></li>
+    }
   </ul>
 
   <!-- Derecha: Login/Admin/Logout + Carrito -->
-  <div class="nav-right">
+  <div class="nav-right" [class.active]="menuAbierto">
     @if (!loguiado) {
       <a routerLink="/loguin">Login</a>
     }
@@ -24,13 +31,13 @@
 
 
     <!-- Derecha -->
-    <div class="nav-right">
+    <div class="nav-right" [class.active]="menuAbierto">
       @if (loguiado) {
       <a routerLink="/administrador">ADMIN</a>
       <a (click)="logout()" routerLink="/login">Logout</a>
     }
 </div>
-    <button class="cart-btn" (click)="openCart()" aria-label="Carrito">
+    <button [class.active]="menuAbierto" class="cart-btn" (click)="openCart()" aria-label="Carrito">
       <ion-icon name="cart-outline"></ion-icon>
       <span class="badge">{{ (count$ | async) ?? 0 }}</span>
     </button>

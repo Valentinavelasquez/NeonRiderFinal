@@ -139,7 +139,8 @@ ul li a { cursor: pointer; }
   }
 
   .nav-links.active {
-    max-height: 300px; /* cuando se abre el menú */
+    max-height: 100dvh;
+    padding: 20px; /* cuando se abre el menú */
   }
 
   .nav-right {

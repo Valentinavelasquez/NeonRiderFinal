@@ -7,7 +7,9 @@ body .inputForm{
 }
 
 .form {
-  position: absolute;
+align-items: center;
+margin-bottom: 700px;
+  position:absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -122,7 +124,31 @@ body .inputForm{
   font-size: 14px;
   margin: 5px 0;
 }
+@media (max-width: 480px) {
+  .form {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+  }
 
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .button-submit {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .p {
+    font-size: 0.85rem;
+  }
+
+  .forgot {
+    font-size: 0.8rem;
+  }
+}
 
 
 
