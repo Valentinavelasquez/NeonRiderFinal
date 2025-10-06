@@ -1,9 +1,12 @@
+/* =============================
+   CATEGORÍAS DE CASCOS
+============================= */
 .container-tipos-de-cascos h2 p{
 display: flex;
 justify-content: center;
 gap: 40px;
 flex-wrap: wrap;
-margin-top: 50px;
+margin-top: 30px;
 }
 h2{
   margin-top: 80px;
@@ -15,33 +18,53 @@ P{
   margin-left: 30px;
   color: white;
 }
-.icono{
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 10px auto;
-}
-.icono img{
-  width: 70px; /* tamaño del ícono dentro del círculo */
-  height: auto;
-  transition: transform 0.3s ease; /* animación suave */
-}
-.icono img:hover{
-  transform: translateY(-10px);
-}
-.icono p {
-font-size: 14px;
-font-weight: bold;
-color: white;
-text-transform: uppercase; /* texto en mayúscula */
-margin: 25px;
-text-align: center;
-}
-.tu-estilo{
-  padding: 28px;
-  margin-left: 40px;
+.tu-estilo {
+  padding: 0 28px;
   font-weight: bold;
+  color: #ffffff;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  gap: 18px;
+  padding: 10px 28px 10px 28px;
+}
+@media (max-width: 992px) {
+  .chips { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+  .chips { grid-template-columns: repeat(2, 1fr); }
+}
+
+.chip {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icono {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: grid; place-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08) inset;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.icono img {
+  width: 70px; height: auto;
+  transition: transform .25s ease;
+}
+.chip:hover .icono {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+.chip span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
 }

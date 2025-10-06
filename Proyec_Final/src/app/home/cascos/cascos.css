@@ -1,361 +1,172 @@
+/* -------------------------------------------------------------------- */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #000000;
-}
-/* carrusel de categorias */
-.container-tipos-de-cascos h2 p{
-display: flex;
-justify-content: center;
-gap: 40px;
-flex-wrap: wrap;
-margin-top: 50px;
-}
-h2{
-  margin-top: 80px;
-  margin-left: 30px;
-  color: white;
-}
-P{
-  margin-right: 30px;
-  margin-left: 30px;
-  color: white;
-}
-.icono{
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 10px auto;
-}
-.icono img{
-  width: 70px; /* tamaño del ícono dentro del círculo */
-  height: auto;
-  transition: transform 0.3s ease; /* animación suave */
-}
-.icono img:hover{
-  transform: translateY(-10px);
-}
-.icono p {
-font-size: 14px;
-font-weight: bold;
-color: #fff;
-text-transform: uppercase; /* texto en mayúscula */
-margin: 25px;
-text-align: center;
-}
-.tu-estilo{
-  padding: 28px;
-  margin-left: 40px;
-  font-weight: bold;
+  background: #000;
+  color: #fff;
 }
 
-/* -------------------------------------------------- */
+/* =============================
+   CATEGORÍAS DE CASCOS
+============================= */
+.container-tipos-de-cascos {
+  display: block;
+  width: 100%;
+  margin: 40px 0 10px 0;
+}
+
+.tu-estilo {
+  padding: 0 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  gap: 18px;
+  padding: 10px 28px 10px 28px;
+}
+@media (max-width: 992px) {
+  .chips { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+  .chips { grid-template-columns: repeat(2, 1fr); }
+}
+
+.chip {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icono {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: grid; place-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08) inset;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.icono img {
+  width: 70px; height: auto;
+  transition: transform .25s ease;
+}
+.chip:hover .icono {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+.chip span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* =============================
+   TARJETAS DE PRODUCTOS
+============================= */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  grid-template-rows: 1fr 1fr;
-
+  gap: 8px;
+  justify-items: center;
+  padding: 30px;
 }
 
-.card {
-  margin:130px 20px 45px;
-  padding: 10px;
-  max-width: 100%;
-  max-height: 400px;
-  background-color: white;
+.cards-container {
+  background-color: #000;
+  border: 1px solid #0ac419;
+  border-radius: 10px;
+  text-align: center;
   color: white;
-  position: relative;
+  width: 100%;
+  max-width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-  border-radius: 10px;
-  overflow: hidden;
+  padding: 15px;
+  transition: transform 0.3s ease;
 }
 
-.card img {
-  width: 100px;
-  max-width: 90%;
-  max-height: 100px;
-  margin: 20px 40% 0px 25%;
+.cards-container:hover {
+  transform: scale(1.03);
 }
 
-.card a {
-  margin-top: auto;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  font-size: 10px;
-}
-.title {
-  overflow: clip;
-
-  width: 100%;
-
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--light);
-  text-transform: capitalize;
-  text-wrap: nowrap;
-  text-overflow: ellipsis;
+.cards-container img {
+  width: 90%;
+  max-height: 340px;
+  object-fit: contain;
+  margin: 10px auto;
 }
 
-.size {
-  font-size: 0.75rem;
-  color: var(--light);
-  --primary-shadow: #14c112;
-}
-
-.list-size {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-
-  margin-top: 0.25rem;
-}
-
-.list-size .item-list {
-  list-style: none;
-}
-
-.list-size .item-list-button {
-  cursor: pointer;
-
-  padding: 0.5rem;
-  background-color: var(--zinc-800);
-
-  font-size: 0.75rem;
-  color: var(--light);
-
-  border: 2px solid var(--zinc-800);
-  border-radius: 0.25rem;
-
-  transition: all 0.3s ease-in-out;
-}
-
-.item-list-button:hover {
-  border: 2px solid var(--light);
-}
-.item-list-button:focus {
-  background-color: var(--primary);
-
-  border: 2px solid var(--primary-shadow);
-
-  box-shadow: inset 0px 1px 4px var(--primary-shadow);
-}
-
-
-/* Backgrounds */
-.card-red {
-  background: linear-gradient(135deg, #021307, #002147);
-  grid-row: span 2;
-
-}
-
-.card-gray {
-  background: linear-gradient(to right, #0346f4, #0e0772);
-}
-
-.card-blue {
-  background: linear-gradient(135deg, #002f8e, #0074ff);
-}
-
-.card-orange {
-  background: linear-gradient(135deg, #a84300, #ff7a00);
-}
-
-.card-purple {
-  background: linear-gradient(135deg, #250045, #50007a);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .cards-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  .card-red {
-    grid-row: auto;
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 600px) {
-  .cards-container {
-    grid-template-columns: 1fr;
-  }
-
-  .card-red {
-    grid-column: auto;
-  }
-}
-
-/* card de productos */
-.carrusel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 20px;
-      scroll-behavior: smooth;
-    }
-
-    .carrusel::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .carrusel::-webkit-scrollbar-thumb {
-      background: #444;
-      border-radius: 4px;
-    }
-.card{
-  background-color: black;
-    border: 1px solid #0ac419;
-    display: flex;
-    justify-content: center;
-}
+/* =============================
+   BOTONES
+============================= */
 .button {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
   border: none;
   background: none;
-  color: #0f1923;
   cursor: pointer;
   position: relative;
-  padding: 1px;
-  margin-bottom: 20px;
+  margin: 10px auto;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
-  transition: all .15s ease;
-
-}
-
-.button::before,
-.button::after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: calc(50% - 5px);
-  border: 1px solid #0fc433;
-  transition: all .15s ease;
-}
-
-.button::before {
-  top: 0;
-  border-bottom-width: 0;
-}
-
-.button::after {
-  bottom: 0;
-  border-top-width: 0;
-}
-
-.button:active,
-.button:focus {
-  outline: none;
-}
-
-.button:active::before,
-.button:active::after {
-  right: 3px;
-  left: 3px;
-}
-
-.button:active::before {
-  top: 3px;
-}
-
-.button:active::after {
-  bottom: 3px;
+  transition: all 0.2s ease;
 }
 
 .button_lg {
-  position: relative;
-  display: block;
+  display: inline-block;
   padding: 10px 20px;
+  background-color: #0f1923;
   color: #fff;
-  background-color: #0f1923;
+  border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0px 0px 0px 1px transparent;
-}
-
-.button_lg::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 2px;
-  background-color: #0f1923;
-}
-
-.button_lg::after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 4px;
-  height: 4px;
-  background-color: #0f1923;
-  transition: all .2s ease;
-}
-
-.button_sl {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: -1px;
-  left: -8px;
-  width: 0;
-  background-color: #46ff52;
-  transform: skew(-15deg);
-  transition: all .2s ease;
-}
-
-.button_text {
   position: relative;
 }
 
-.button:hover {
+.button:hover .button_lg {
+  background-color: #46ff52;
   color: #0f1923;
 }
 
-.button:hover .button_sl {
-  width: calc(100% + 15px);
+/* =============================
+   RESPONSIVE DESIGN
+============================= */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .icono img {
+    width: 80px;
+    height: 80px;
+  }
 }
 
-.button:hover .button_lg::after {
-  background-color: #fff;
-}
+/* Celulares */
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
-.title { margin-bottom: 1rem; }
-.grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-}
-.card {
-  background: #0f0f10;
-  color: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 6px 20px rgb(0 0 0 / 25%);
-}
-.card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
-.card .meta {
-  display: flex; align-items: center; justify-content: space-between; margin-top: .75rem;
-}
-.card button {
-  background: #19c37d; border: 0; padding: .5rem .75rem; border-radius: 8px; cursor: pointer;
+  .container-tipos-de-casco h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .icono img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icono {
+    margin: 10px;
+  }
 }
