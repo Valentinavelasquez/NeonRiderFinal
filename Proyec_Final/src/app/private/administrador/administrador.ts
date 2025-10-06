@@ -133,7 +133,7 @@ export class Administrador {
 
   createAccesorio() {
     console.log(this.formAccesorio.value);
-    this.accesorioService.createAccesorio(this.formProduct.value).subscribe({
+    this.accesorioService.createAccesorio(this.formAccesorio.value).subscribe({
       next:(dataApi: any)=> {
               Swal.fire({
                 title:"¡Creado!",
