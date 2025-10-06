@@ -88,6 +88,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
+  margin: 12px 10px 10px;
+  margin-left:30px;
   transition: transform 0.3s ease;
 }
 
@@ -169,4 +171,26 @@ body {
   .icono {
     margin: 10px;
   }
+}
+
+.contenedor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+}
+
+/* Solo en pantallas pequeñas (celulares) */
+@media (max-width: 600px) {
+  .contenedor-cards {
+    justify-content: center;  /* centra las tarjetas */
+    text-align: center;       /* centra el texto e imagen dentro */
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    margin: 0 auto;           /* centra cada tarjeta individualmente */
+    width: 90%;               /* que no ocupe todo el ancho */
+  }
 }

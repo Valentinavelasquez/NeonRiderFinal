@@ -17,6 +17,7 @@ export default class Cascos implements OnInit {
   private cart = inject(CartService);
   productService = inject(Product)
 
+
   loading = true;
   lista: Producto[] = [];
   items!:any

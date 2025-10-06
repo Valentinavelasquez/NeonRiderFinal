@@ -6,18 +6,32 @@
         </div>
     </div>
 </div>
+<!-- card de otras especificaciones con el precio ----------->
+<div class="card">
+    <div class="title">
+        <span>{{ items['referencia'] || items['nombre'] }}</span>
+    </div>
+    <div class="size">
+        <span>Selecciona la talla</span>
+        <ul class="list-size">
+        <li class="item-list"><button class="item-list-button">XS</button></li>
+        <li class="item-list"><button class="item-list-button">S</button></li>
+        <li class="item-list"><button class="item-list-button">M</button></li>
+        <li class="item-list"><button class="item-list-button">L</button></li>
+        <li class="item-list"><button class="item-list-button">XL</button></li>
+        </ul>
+    </div>
+    <div class="action">
+        <div class="price">
+        <span>${{items.Precio}}</span>
+        </div>
+    </div>
+
+</div>
+
+
 <!-- accesorios adicionales -->
 <table>
-    <tr>
-        <td data-label="Propiedad">Selecciona la talla</td>
-        <ul class="list-size">
-            <li class="item-list"><button class="item-list-button">S</button></li>
-            <li class="item-list"><button class="item-list-button">M</button></li>
-            <li class="item-list"><button class="item-list-button">L</button></li>
-            <li class="item-list"><button class="item-list-button">XL</button></li>
-            <li class="item-list"><button class="item-list-button">XXL</button></li>
-        </ul>
-    </tr>
     <tr>
         <td data-label="Propiedad">Color del grafico</td>
         <td data-label="Especificación">{{items.Color}}</td>

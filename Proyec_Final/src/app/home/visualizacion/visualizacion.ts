@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Product } from '../../services/product/product';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-visualizacion',
-  imports: [],
+  imports: [CommonModule,],
   templateUrl: './visualizacion.html',
   styleUrl: './visualizacion.css'
 })
@@ -29,4 +30,5 @@ export class Visualizacion {
             }
         })
     }
+
 }

@@ -3,14 +3,16 @@
   <div class="image-container">
     <img src="Logo/Logo_principal.png" alt="">
   </div>
+<!-- Botón hamburguesa -->
+  <button class="menu-toggle" (click)="toggleMenu()">
+    ☰
+  </button>
 
   <!-- Links -->
-  <ul class="nav-links">
+  <ul class="nav-links" [class.active]="menuAbierto">
     <li class="personaliza" routerLink="/dashboard"><a>INICIO</a></li>
     <li class="personaliza" routerLink="/cascos/todos"><a>CASCOS</a></li>
     <li class="personaliza" routerLink="/accesorios"><a>ACCESORIOS</a></li>
-    <li class="personaliza" routerLink="/textil"><a>TEXTIL</a></li>
-    <li class="personaliza" routerLink="/personalizacion"><a>PERSONALIZAR</a></li>
   </ul>
 
   <!-- Derecha: Login/Admin/Logout + Carrito -->

@@ -25,9 +25,9 @@ export class Accesorios {
       return this.http.post(`${this.apiUrl}/accesorio`, body);
     }
 
-    getAccesorio(): Observable<Producto[]> {
+    getAccesorio(): Observable<Accesorios[]> {
       return this.http
-        .get<Producto[] | { data: Producto[] }>(`${this.apiUrl}/accesorios`)
+        .get<Accesorios[] | { data: Accesorios[] }>(`${this.apiUrl}/accesorios`)
         .pipe(map(res => (Array.isArray(res) ? res : (res as any)?.data ?? [])));
     }
 
@@ -39,9 +39,9 @@ export class Accesorios {
       return this.http.put(`${this.apiUrl}/accesorio/${id}`, body);
     }
 
-    getOneAccesorio(id: string): Observable<Producto> {
+    getOneAccesorio(id: string): Observable<Accesorios> {
       return this.http
-        .get<Producto | { data: Producto }>(`${this.apiUrl}/accesorio/${id}`)
-        .pipe(map(res => (Array.isArray(res) ? (res as any)[0] : (res as any)?.data ?? (res as Producto))));
+        .get<Accesorios | { data: Accesorios }>(`${this.apiUrl}/accesorio/${id}`)
+        .pipe(map(res => (Array.isArray(res) ? (res as any)[0] : (res as any)?.data ?? (res as Accesorios))));
     }
 }
